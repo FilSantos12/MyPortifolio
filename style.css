@@ -1,0 +1,185 @@
+/* importar fontes do google fontes */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.hero-section {
+  background: #000;
+  padding: 100px 0;
+}
+
+.hero-section .display-4 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+}
+
+.hero-section .btn-primary {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+#about p {
+  font-size: 1.2rem; /* ou qualquer tamanho que você preferir */
+}
+
+#about, #contact {
+  padding: 60px 0;
+}
+
+.about, .btn-primary {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+#portfolio {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 60px 0;
+}
+
+#portfolio .card {
+  transition: transform 0.3s;
+}
+
+#portfolio .card:hover {
+  transform: scale(1.05);
+}
+
+#portfolio .card {
+  background-color: #000000;
+  color: #ffffff;}
+
+  #portfolio .card .bx {
+    font-size: 3rem; /* Ajuste este valor para o tamanho desejado */
+  }
+
+footer {
+  background: #343a40;
+  color: #ffffff;
+}
+
+.hero-section {
+  background: #000;
+  padding: 100px 0;
+}
+
+.hero-section .display-4 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+}
+
+.hero-section .btn-primary {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.hero-icons {
+  margin: 20px 0;
+}
+
+.hero-icons ion-icon {
+  font-size: 4rem; /* Aumenta o tamanho dos ícones */
+  margin: 0 15px;
+  transition: transform 0.3s;
+}
+
+.hero-icons ion-icon:hover {
+  transform: scale(1.2); /* Efeito de zoom ao passar o mouse sobre os ícones */
+}
+
+/*modal*/
+.t-modal .modal-content {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #333333;
+}
+
+.t-modal .modal-header{
+  padding: 30px 15px;
+}
+
+.t-modal .modal-title{
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.t-modal .modal-title,
+.t-modal .close{
+  color: #fff;
+}
+
+/*pagina obrigado*/
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.alert-light {
+  background-color: #fff;
+  color: #000;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+a.alert-link {
+  color: #007bff;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.alert-light {
+  background-color: #fff;
+  color: #000;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+a.alert-link {
+  color: #007bff;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-img, .card-img-bottom {
+    width: 40%; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    display: block; /* Para garantir que a centralização funcione */
+}
