@@ -190,14 +190,14 @@ a.alert-link {
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
     display: block; /* Para garantir que a centralização funcione */
 }
-/*efeito */
+/*parametros efeito magnetico de rolagem*/
 .efect {
   opacity: 0;
   filter: blur(15px);
   transform: translate(-100%);
   transition: all 1s;
 }
-/*efeito */
+/*paremtros efeito magnético de rolagem*/
 .show {
   opacity: 1;
   filter: blur(0);
