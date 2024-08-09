@@ -112,6 +112,12 @@ footer {
   transition: transform 0.3s;
 }
 
+.hero-section img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
 .hero-icons ion-icon:hover {
   transform: scale(1.2); /* Efeito de zoom ao passar o mouse sobre os ícones */
 }
@@ -195,14 +201,14 @@ a.alert-link {
   opacity: 0;
   filter: blur(15px);
   transform: translate(-100%);
-  transition: all 1s;
+  transition: all 1.3s;
 }
 /*paremtros efeito magnético de rolagem*/
 .show {
   opacity: 1;
   filter: blur(0);
   transform: translate(0);
-  transition: all 1s;
+  transition: all 1.3s;
 }
  
 /*
