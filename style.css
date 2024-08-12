@@ -175,12 +175,12 @@ footer {
 /* Página de obrigado */
 body {
   background-color: #000;
-  color: #fff;
+  color: #4831d4;
 }
 
 .alert-light {
-  background-color: #fff;
-  color: #000;
+  background-color: #4831d4;
+  color: #ccf381;
 }
 
 .container {
@@ -201,6 +201,7 @@ a.alert-link {
   height: auto; /* Mantém a proporção da imagem */
   margin: 0 auto; /* Centraliza a imagem horizontalmente */
   display: block; /* Para garantir que a centralização funcione */
+  background-color: #4831d4;
 }
 
 /* Parâmetros efeito magnético de rolagem */
@@ -251,4 +252,10 @@ a.alert-link {
 
 .icons :nth-child(5) {
   transition-delay: 1500ms;
+}
+
+/*Pagina de projetos */
+
+body1{
+  background-color: #ccf381;
 }
