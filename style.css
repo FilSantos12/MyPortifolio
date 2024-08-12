@@ -1,9 +1,7 @@
-/* importar fontes do google fontes */
+/* Importar fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-html{
+html {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
@@ -13,17 +11,51 @@ body {
   line-height: 1.6;
   background-color: #121212;
   color: #ffffff;
+  background-image: linear-gradient(to left,#ccf381 33%, #4831d4 67%);
+  background-size: 500% 100%;
+  animation: degrade-animado 10s infinite alternate;
+  margin: 0;
+  padding: 0;
 }
 
+
+/* Animação de gradiente 
+@keyframes degrade-animado {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+*/
+
+
+.form-control{
+  background-color: #4831d4 67%;
+  color: #ccf381 33%;
+}
+
+.py-5{
+  background-color: #ccf381 33%; /*Style do sobre min*/
+}
+.container {
+  color: #4831d4 67%; /*Style do sobre min*/
+}
+
+.btn{
+  color: #4831d4 /*Style do sobre min*/;
+  background-color: #ccf381;
+  border-color: #4831d4;
+}
 section {
   display: grid;
-  /*place-items: center;*/
   align-items: center;
   min-height: 100vh;
 }
 
 .hero-section {
-  background: #000;
+  background: transparent; /* Transparente para ver o gradiente de fundo */
   padding: 100px 0;
 }
 
@@ -56,7 +88,7 @@ section {
 }
 
 #portfolio {
-  background-color: #000000;
+  background: transparent; /* Transparente para ver o gradiente de fundo */
   color: #ffffff;
   padding: 60px 0;
 }
@@ -70,36 +102,17 @@ section {
 }
 
 #portfolio .card {
-  background-color: #000000;
-  color: #ffffff;}
-
-  #portfolio .card .bx {
-    font-size: 3rem; /* Ajuste este valor para o tamanho desejado */
-  }
-
-footer {
-  background: #343a40;
+  background-color: transparent; /* Transparente para ver o gradiente de fundo */
   color: #ffffff;
 }
 
-.hero-section {
-  background: #000;
-  padding: 100px 0;
+#portfolio .card .bx {
+  font-size: 3rem; /* Ajuste este valor para o tamanho desejado */
 }
 
-.hero-section .display-4 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero-section .lead {
-  font-size: 1.25rem;
-  margin-bottom: 40px;
-}
-
-.hero-section .btn-primary {
-  padding: 10px 20px;
-  font-size: 1rem;
+footer {
+  background: #4831d4 67%;
+  color: #ccf381 33%;
 }
 
 .hero-icons {
@@ -110,7 +123,23 @@ footer {
   font-size: 4rem; /* Aumenta o tamanho dos ícones */
   margin: 0 15px;
   transition: transform 0.3s;
+  color: #ccf381 33%;
 }
+
+.display-4{
+  color: #ccf381 33%;
+}
+
+.texto{
+  color: #ccf381 33%;
+}
+
+.btn-primary{
+  color: #4831d4;
+  background-color: #ccf381;
+  border-color: #4831d4;
+}
+
 
 .hero-section img {
   max-width: 50%;
@@ -122,51 +151,28 @@ footer {
   transform: scale(1.2); /* Efeito de zoom ao passar o mouse sobre os ícones */
 }
 
-/*modal*/
+/* Modal */
 .t-modal .modal-content {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #333333;
 }
 
-.t-modal .modal-header{
+.t-modal .modal-header {
   padding: 30px 15px;
 }
 
-.t-modal .modal-title{
+.t-modal .modal-title {
   text-transform: uppercase;
   font-size: 20px;
 }
 
 .t-modal .modal-title,
-.t-modal .close{
+.t-modal .close {
   color: #fff;
 }
 
-/*pagina obrigado*/
-
-body {
-  background-color: #000;
-  color: #fff;
-}
-
-.alert-light {
-  background-color: #fff;
-  color: #000;
-}
-
-.container {
-  margin-top: 50px;
-}
-
-a.alert-link {
-  color: #007bff;
-}
-
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
+/* Página de obrigado */
 body {
   background-color: #000;
   color: #fff;
@@ -191,26 +197,28 @@ a.alert-link {
 }
 
 .card-img, .card-img-bottom {
-    width: 40%; /* Ajuste a largura conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
-    display: block; /* Para garantir que a centralização funcione */
+  width: 40%; /* Ajuste a largura conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  display: block; /* Para garantir que a centralização funcione */
 }
-/*parametros efeito magnetico de rolagem*/
+
+/* Parâmetros efeito magnético de rolagem */
 .efect {
   opacity: 0;
   filter: blur(15px);
   transform: translate(-100%);
   transition: all 1.3s;
 }
-/*paremtros efeito magnético de rolagem*/
+
 .show {
   opacity: 1;
   filter: blur(0);
   transform: translate(0);
   transition: all 1.3s;
 }
- /*Efeito e transição da foto*/
+
+/* Efeito e transição da foto */
 .img {
   transition-delay: 400ms;
 }
@@ -219,27 +227,28 @@ a.alert-link {
   transition-delay: 400ms;
 }
 
-/*esse comando é a posição e o tempo de efeito*/
-.icons{
+/* Comando é a posição e o tempo de efeito */
+.icons {
   display: flex;
   gap: 10px;
 }
 
-.icons :nth-child(1){
+.icons :nth-child(1) {
   transition-delay: 300ms;
 }
-.icons :nth-child(2){
+
+.icons :nth-child(2) {
   transition-delay: 600ms;
 }
 
-.icons :nth-child(3){
+.icons :nth-child(3) {
   transition-delay: 900ms;
 }
 
-.icons :nth-child(4){
+.icons :nth-child(4) {
   transition-delay: 1200ms;
 }
 
-.icons :nth-child(5){
+.icons :nth-child(5) {
   transition-delay: 1500ms;
 }
