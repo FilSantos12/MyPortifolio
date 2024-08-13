@@ -33,3 +33,9 @@ const myObserver = new IntersectionObserver( (entries) => {
 const elements = document.querySelectorAll('.efect')
 
 elements.forEach((elements) => myObserver.observe(elements))
+
+
+//Esse código é para a rolagem automatica da pagina
+
+
+

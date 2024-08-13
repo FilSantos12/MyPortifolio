@@ -254,8 +254,75 @@ a.alert-link {
   transition-delay: 1500ms;
 }
 
+/* Ajuste para garantir que todas as imagens do portfólio tenham o mesmo tamanho */
+.card img {
+  height: 150px; /* Define a altura fixa para todas as imagens */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  width: 100%; /* Garante que as imagens ocupem toda a largura do contêiner */
+}
+
+/* Remove a linha de contorno (borda) e sombra dos cartões */
+.card {
+  border: none; /* Remove a borda do cartão */
+  box-shadow: none; /* Remove a sombra do cartão */
+}
+
+/* Contêiner para os elementos gráficos de fundo */
+.background-decorations {
+    position: absolute; /* Permite que os elementos sejam posicionados em relação ao contêiner pai */
+    top: 0; /* Posiciona o contêiner no topo */
+    left: 0; /* Posiciona o contêiner à esquerda */
+    width: 100%; /* Largura igual ao contêiner pai */
+    height: 100%; /* Altura igual ao contêiner pai */
+}
+
+/* Estilo para o retângulo roxo */
+.purple-rectangle {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    width: 100px; /* Largura do retângulo */
+    height: 200px; /* Altura do retângulo */
+    background-color: #6B3FC7; /* Cor de fundo roxa */
+    top: 0; /* Posiciona o retângulo no topo */
+    left: 0; /* Posiciona o retângulo à esquerda */
+}
+
+/* Estilo para o retângulo verde */
+.green-rectangle {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    width: 100px; /* Largura do retângulo */
+    height: 200px; /* Altura do retângulo */
+    background-color: #B3E55E; /* Cor de fundo verde */
+    bottom: 0; /* Posiciona o retângulo na parte inferior */
+    right: 0; /* Posiciona o retângulo à direita */
+}
+
+/* Estilo para o conjunto de pontos brancos */
+.dots {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 20px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 20px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 5px; /* Define a largura de cada ponto */
+    height: 5px; /* Define a altura de cada ponto */
+    background-color: white; /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 white, 20px 0 white, 30px 0 white, 40px 0 white; /* Cria pontos adicionais com sombra em offset */
+}
+
+/* Estilo para o padrão ziguezague */
+.zigzag {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    bottom: 20px; /* Posiciona o padrão 20px acima da parte inferior */
+    left: 20px; /* Posiciona o padrão 20px à esquerda */
+    width: 50px; /* Largura do padrão ziguezague */
+    height: 50px; /* Altura do padrão ziguezague */
+    background-image: linear-gradient(to right, transparent 50%, white 50%), linear-gradient(to right, white 50%, transparent 50%);
+    /* Cria o padrão ziguezague com gradientes lineares */
+    background-size: 10px 10px; /* Define o tamanho das linhas do ziguezague */
+    background-repeat: repeat; /* Faz com que o padrão se repita */
+    transform: rotate(45deg); /* Roda o padrão em 45 graus para criar o ziguezague */
+
 /*Pagina de projetos */
 
 body1{
   background-color: #ccf381;
 }
+
