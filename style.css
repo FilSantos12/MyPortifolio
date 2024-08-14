@@ -291,7 +291,7 @@ a.alert-link {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
     width: 100px; /* Largura do retângulo */
     height: 200px; /* Altura do retângulo */
-    background-color: #B3E55E; /* Cor de fundo verde */
+    background-color: rgb(179, 229, 94); /* Cor de fundo verde */
     bottom: 0; /* Posiciona o retângulo na parte inferior */
     right: 0; /* Posiciona o retângulo à direita */
 }
@@ -299,26 +299,114 @@ a.alert-link {
 /* Estilo para o conjunto de pontos brancos */
 .dots {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 20px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 20px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 5px; /* Define a largura de cada ponto */
-    height: 5px; /* Define a altura de cada ponto */
-    background-color: white; /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 white, 20px 0 white, 30px 0 white, 40px 0 white; /* Cria pontos adicionais com sombra em offset */
+    top: 0px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
 }
+
+/* Estilo para o conjunto de pontos brancos */
+.dots2 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 10px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+}
+
 
 /* Estilo para o padrão ziguezague */
 .zigzag {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
     bottom: 20px; /* Posiciona o padrão 20px acima da parte inferior */
     left: 20px; /* Posiciona o padrão 20px à esquerda */
-    width: 50px; /* Largura do padrão ziguezague */
-    height: 50px; /* Altura do padrão ziguezague */
-    background-image: linear-gradient(to right, transparent 50%, white 50%), linear-gradient(to right, white 50%, transparent 50%);
+    width: 120px; /* Largura do padrão ziguezague */
+    height: 100px; /* Altura do padrão ziguezague */
+    background-image: linear-gradient(to right, transparent 50%, #6B3FC7 50%), linear-gradient(to right, rgb(179, 229, 94) 50%, transparent 50%);
     /* Cria o padrão ziguezague com gradientes lineares */
     background-size: 10px 10px; /* Define o tamanho das linhas do ziguezague */
     background-repeat: repeat; /* Faz com que o padrão se repita */
     transform: rotate(45deg); /* Roda o padrão em 45 graus para criar o ziguezague */
+}
+
+/* Estilo para o conjunto de pontos brancos */
+.dots3 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 20px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+
+}
+
+.dots4 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 30px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+}
+
+/* Estilo para o conjunto de pontos brancos */
+.dots5 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 40px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+
+}
+
+/* Estilo para o conjunto de pontos brancos */
+.dots6 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 50px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+}
+
+/* Estilo para o conjunto de pontos brancos */
+.dots7 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 60px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+
+}
+
+.dots8 {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
+    top: 70px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
+    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
+    width: 3px; /* Define a largura de cada ponto */
+    height: 3px; /* Define a altura de cada ponto */
+    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
+    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
+    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+}
 
 /*Pagina de projetos */
 
