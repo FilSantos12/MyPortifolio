@@ -413,4 +413,60 @@ a.alert-link {
 body1{
   background-color: #ccf381;
 }
+/* PAGINA RESPONSIVA
+Estilos para telas de largura mínima de 768px (Tablets e acima) */
+@media (min-width: 768px) {
+  .image-container {
+      width: 400px;
+      height: 500px;
+  }
 
+  .purple-rectangle, .green-rectangle {
+      width: 120px;
+      height: 250px;
+  }
+}
+
+/* Estilos para telas de largura mínima de 1024px (Notebooks e acima) */
+@media (min-width: 1024px) {
+  .image-container {
+      width: 500px;
+      height: 600px;
+  }
+
+  .purple-rectangle, .green-rectangle {
+      width: 150px;
+      height: 300px;
+  }
+
+  .dots {
+      box-shadow: 12px 0 white, 24px 0 white, 36px 0 white, 48px 0 white;
+  }
+
+  .zigzag {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Estilos para telas de largura máxima de 480px (Mobile) */
+@media (max-width: 480px) {
+  .image-container {
+      width: 250px;
+      height: 350px;
+  }
+
+  .purple-rectangle, .green-rectangle {
+      width: 80px;
+      height: 160px;
+  }
+
+  .dots {
+      box-shadow: 8px 0 white, 16px 0 white, 24px 0 white, 32px 0 white;
+  }
+
+  .zigzag {
+      width: 40px;
+      height: 40px;
+  }
+}
