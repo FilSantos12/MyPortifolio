@@ -1,4 +1,8 @@
+ 
+ 
+ 
  // JavaScript Validar campo de contato, não deixar enviar sem o preechimento.
+ /*
  (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -16,7 +20,7 @@
         });
     }, false);
 })();
-
+*/
 
 //comando do efeito magnetico
 const myObserver = new IntersectionObserver( (entries) => {
