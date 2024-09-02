@@ -489,3 +489,27 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
 .purple-rectangle, .green-rectangle, .dots, .dots2, .dots3, .dots4, .dots5, .dots6, .dots7, .dots8, .zigzag {
     pointer-events: none; /* Impede que os gráficos interfiram na interação com o formulário */
 }
+
+/* Ajustando o botão "Baixar CV" */
+#download-cv {
+    position: relative;
+    z-index: 10; /* Garante que o botão fique na frente dos gráficos */
+    margin-top: 20px; /* Adiciona margem superior para separação */
+}
+
+/* Ajustes de layout responsivo */
+@media (max-width: 768px) {
+    #download-cv {
+        width: 100%; /* Garante que o botão seja largo o suficiente em dispositivos móveis */
+        margin-top: 15px;
+    } 
+
+        /* Pode precisar ajustar o tamanho ou posição dos gráficos em telas menores */
+    .background-decorations .purple-rectangle,
+    .background-decorations .green-rectangle,
+    .background-decorations .dots {
+        /* Exemplo de ajustes */
+        width: 80%;
+        margin: 0 auto;
+    }
+}
