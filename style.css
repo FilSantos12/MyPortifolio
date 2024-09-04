@@ -512,4 +512,10 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
         width: 80%;
         margin: 0 auto;
     }
+
+}
+
+.card, .carousel-control-prev, .carousel-control-next {
+    position: relative;
+    z-index: 2; /* Garante que os cartões e controles do carrossel estejam na frente */
 }
