@@ -76,10 +76,23 @@ section {
 
 #about p {
   font-size: 1.2rem; /* ou qualquer tamanho que você preferir */
+  position: relative;
+  z-index: 2;
 }
+
 
 #about, #contact {
   padding: 60px 0;
+}
+
+#contact h2 {
+    position: relative;
+    z-index: 10; /* Certifique-se de que o z-index é maior que o do retângulo */
+}
+
+.background-decorations .purple-rectangle {
+    position: relative;
+    z-index: 1; /* O retângulo ficará atrás do texto */
 }
 
 .about, .btn-primary {
@@ -284,7 +297,9 @@ a.alert-link {
     background-color: #6B3FC7; /* Cor de fundo roxa */
     top: 0; /* Posiciona o retângulo no topo */
     left: 0; /* Posiciona o retângulo à esquerda */
+    z-index: 1;
 }
+
 
 /* Estilo para o retângulo verde */
 .green-rectangle {
