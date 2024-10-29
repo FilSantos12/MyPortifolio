@@ -10,12 +10,14 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--Scrool Reveal Rolagem de pagina-->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- Custom CSS -->
     <link href="style.projweb.css" rel="stylesheet">
 </head>
 <body>
 
-        <!-- Navbar -->
+                            <!-- Navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-trasparent">
         <a class="navbar-brand" href="index.html">
@@ -27,7 +29,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">      
+
                             <!-- Ícone de casa -->
+
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">
                         <ion-icon name="home-outline"></ion-icon> Home
@@ -36,40 +40,74 @@
             </ul>
         </div>
     </nav>
- 
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card project-card">
-                            <img class="card-img-top" src="img/project1.jpg" alt="Projeto 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Projeto 1</h5>
-                                <p class="card-text">Descrição do projeto 1.</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="col-md-4 mb-4">
-                        <div class="card project-card">
-                            <img class="card-img-top" src="img/project2.jpg" alt="Projeto 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Projeto 2</h5>
-                                <p class="card-text">Descrição do projeto 2.</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="col-md-4 mb-4">
-                        <div class="card project-card">
-                            <img class="card-img-top" src="img/project3.jpg" alt="Projeto 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Projeto 3</h5>
-                                <p class="card-text">Descrição do projeto 3.</p>
-                            </div>
-                        </div>
-                    </div>
+
+                            <!--Conteudo da pagina-->
+
+            <div class="card-columns">
+            <div class="card">
+                <img class="card-img-top" src="img/projeto1_img2.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                <h5 class="card-title">Título do card que quebra em uma nova linha</h5>
+                <p class="card-text">Este é um card mais longo com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior.</p>
                 </div>
             </div>
+            <div class="card p-3">
+                <blockquote class="blockquote mb-0 card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                    Alguém famoso em <cite title="Título da fonte">Título da fonte</cite>
+                    </small>
+                </footer>
+                </blockquote>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src=".../100px160/" alt="Imagem de capa do card">
+                <div class="card-body">
+                <h5 class="card-title">Título do card</h5>
+                <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+                <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                </div>
+            </div>
+            <div class="card bg-primary text-white text-center p-3">
+                <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+                <footer class="blockquote-footer">
+                    <small>
+                    Alguém famoso em <cite title="Título da fonte">Título da fonte</cite>
+                    </small>
+                </footer>
+                </blockquote>
+            </div>
+            <div class="card text-center">
+                <div class="card-body">
+                <h5 class="card-title">Título do card</h5>
+                <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+                <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img" src=".../100px260/" alt="Imagem do card">
+            </div>
+            <div class="card p-3 text-right">
+                <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">
+                    <small class="text-muted">
+                    Alguém famoso em <cite title="Título da fonte">Título da fonte</cite>
+                    </small>
+                </footer>
+                </blockquote>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Título do card</h5>
+                <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura igual, em ação.</p>
+                <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+                </div>
+            </div>
+            </div>
+            
         <!-- Footer -->
     <footer class="text-center py-4 bg-trasparent text-light">
         <p>&copy; 2024 Filipe Santos. Todos os direitos reservados.</p>

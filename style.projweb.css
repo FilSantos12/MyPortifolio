@@ -24,14 +24,6 @@ body {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Adiciona espaçamento e distribuição */
-.row {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-}
 
-.project-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+
+
