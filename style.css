@@ -292,7 +292,7 @@ a.alert-link {
 /* Estilo para o retângulo roxo */
 .purple-rectangle {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 100px; /* Largura do retângulo */
+    width: 50px; /* Largura do retângulo */
     height: 200px; /* Altura do retângulo */
     background-color: #6B3FC7; /* Cor de fundo roxa */
     top: 0; /* Posiciona o retângulo no topo */
@@ -304,7 +304,7 @@ a.alert-link {
 /* Estilo para o retângulo verde */
 .green-rectangle {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 100px; /* Largura do retângulo */
+    width: 50px; /* Largura do retângulo */
     height: 200px; /* Altura do retângulo */
     background-color: rgb(179, 229, 94); /* Cor de fundo verde */
     bottom: 0; /* Posiciona o retângulo na parte inferior */

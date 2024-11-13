@@ -24,6 +24,12 @@ body {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+.card {
+  background-color: transparent;
+}
+
+
+
 
 
 
