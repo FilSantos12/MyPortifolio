@@ -292,8 +292,8 @@ a.alert-link {
 /* Estilo para o retângulo roxo */
 .purple-rectangle {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 50px; /* Largura do retângulo */
-    height: 200px; /* Altura do retângulo */
+    width: 1cm; /* Largura do retângulo */
+    height: 100px; /* Altura do retângulo */
     background-color: #6B3FC7; /* Cor de fundo roxa */
     top: 0; /* Posiciona o retângulo no topo */
     left: 0; /* Posiciona o retângulo à esquerda */
@@ -304,8 +304,8 @@ a.alert-link {
 /* Estilo para o retângulo verde */
 .green-rectangle {
     position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 50px; /* Largura do retângulo */
-    height: 200px; /* Altura do retângulo */
+    width: 1cm; /* Largura do retângulo */
+    height: 100px; /* Altura do retângulo */
     background-color: rgb(179, 229, 94); /* Cor de fundo verde */
     bottom: 0; /* Posiciona o retângulo na parte inferior */
     right: 0; /* Posiciona o retângulo à direita */
@@ -450,8 +450,8 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
   }
 
   .purple-rectangle, .green-rectangle {
-      width: 150px;
-      height: 300px;
+      width: 350px;
+      height:80px;
   }
 
   .dots {
@@ -472,8 +472,8 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
   }
 
   .purple-rectangle, .green-rectangle {
-      width: 80px;
-      height: 130px;
+      width: 130px;
+      height: 80px;
   }
 
   .dots {
@@ -524,7 +524,7 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
     .background-decorations .green-rectangle,
     .background-decorations .dots {
         /* Exemplo de ajustes */
-        width: 80%;
+        width: auto;
         margin: 0 auto;
     }
 
@@ -534,4 +534,5 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
     position: relative;
     z-index: 2; /* Garante que os cartões e controles do carrossel estejam na frente */
 }
+
 
