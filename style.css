@@ -512,11 +512,11 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
     margin-top: 20px; /* Adiciona margem superior para separação */
 }
 
-/* Ajustes de layout responsivo */
+/* Ajustes de layout responsivo 
 @media (max-width: 768px) {
     #download-cv {
-        width: 100%; /* Garante que o botão seja largo o suficiente em dispositivos móveis */
-        margin-top: 15px;
+        width: 50%; Garante que o botão seja largo o suficiente em dispositivos móveis 
+        margin-top: 15px; */
     } 
 
         /* Pode precisar ajustar o tamanho ou posição dos gráficos em telas menores */
