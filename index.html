@@ -60,13 +60,13 @@
                             <div class="efect">
                                 <ion-icon name="server-sharp"></ion-icon>
                             </div>
-                            <div class="efect">
-                                <ion-icon name="logo-javascript"></ion-icon>
-                            </div>
                         </div>
                     </div>
                     <div class="hero-icons">
                         <div class="icons">
+                            <div class="efect">
+                                <ion-icon name="logo-javascript"></ion-icon>
+                            </div>
                             <div class="efect">
                                 <ion-icon name="logo-android"></ion-icon>
                             </div>  
@@ -79,7 +79,8 @@
 
                     <div class="texto">
                         <div class="efect">
-                            <p class="lead">Desenvolvedor Web | Back-End - Python - C# | Mobile DBA | QA | Data Entry</p>
+                            <p class="lead">Desenvolvedor Web | Front-end Back-end | Mobile | 
+                                DBA | QA | Data Entry</p>
                             <a href="#portfolio" class="btn3 btn-primary">Ver meu trabalho</a>
                         </div>
                     </div>
@@ -117,13 +118,16 @@
     <section id="about" class="py-5 text-white">
         <div class="container d-flex flex-column align-items-center">
             <h1>Sobre Mim</h1>
-            <p>Formado em Mecatrônica Industrial, possuo experiência no desenvolvimento de projetos eletrônicos e automação. Conhecimentos em testes de QA e homologações de equipamentos, suporte técnico a cliente interno, externo e America latina.</p>
-            <p>Cursando Bacharelado em TI, atuo no Desenvolvimento de sistema, HelpDesk, Fild Service e Service Desk interno e externo. Viagens de implantação, treinamento e apresentação de produtos, a 10 anos atuando com instalação e configuração de hardware e software, estabelecendo padrões e seguindo políticas e procedimentos da empresa.</p>
+
+            <p>Cursando Bacharelado em Tecnologia da Informação, tenho direcionado minha carreira para o desenvolvimento de sistemas, especialmente na área de aplicações web e suporte técnico especializado. Atualmente, atuo com: Desenvolvimento de sistemas focados em soluções eficientes e inovadoras. Suporte técnico em HelpDesk, Field Service e Service Desk interno e externo.
+                Implantação de sistemas e treinamento de usuários, alinhados às necessidades do cliente.
+            </p>
+
+            <p>Com formação inicial em Mecatrônica Industrial, adquiri conhecimentos em automação e projetos eletrônicos, que agora complementam minha atuação em TI. Essa base diversificada fortalece minha visão integradora para desenvolver soluções robustas, otimizadas e voltadas para a web.</p>
             
-            <!-- Ícone do LinkedIn -->
                 
             <!--Botão baixar CV-->
-            <a href="https://drive.google.com/file/d/1fARgkuFs3Rkg8BEyLAAAo36DRbd-h7p1/view?usp=sharing" download class="btn2 btn-primary" id="download-cv">Baixar CV</a>
+            <a href="https://drive.google.com/file/d/1BqbthonJMrOstvbzA9G2f2gzUTXs5efc/view?usp=sharing" download class="btn2 btn-primary" id="download-cv">Baixar CV</a>
             <div class="background-decorations">
             
                 <!-- Contêiner para os elementos gráficos de fundo -->
@@ -263,85 +267,91 @@
         <div class="container">
             <h2>Contato</h2>
             <form id="contactForm" action="https://formsubmit.co/filipe.rodri.stos@gmail.com" method="POST" onsubmit="return validateForm()">
+                <input type="hidden" name="_next" value="obrigado.html"/>
+                <input type="hidden" name="_captcha" value="false">
+                
                 <div class="form-group">
-                    <input type="hidden" name="_next" value="obrigado.html"/>
                     <label for="name">Nome</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Mensagem</label>
                     <textarea class="form-control" name="Mensagem" id="message" rows="3" placeholder="Sua mensagem" autocomplete="off" required></textarea>
                 </div>    
 
-                <!--button modal-->
+                <!-- Botão para enviar -->
                 <button type="submit" class="btn2 btn-primary">
                     Enviar
                 </button> 
 
-                <input type="hidden" name="_captcha" value="false">      
+        <!-- Link para o WhatsApp -->
+        <a href="https://wa.me/5515981164972" target="_blank" rel="noopener" class="ml-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 40px; height: 40px;">
+        </a>
+
+                <!-- Link para LinkedIn -->
+        <a href="https://www.linkedin.com/in/filipe-rodrigues-dos-santos-79781894/" target="_blank" rel="noopener" class="ml-3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" style="width: 40px; height: 40px;">
+        </a>
+
             </form>
-
-            <div class="background-decorations">
-                <!-- Contêiner para os elementos gráficos de fundo -->
-                <div class="purple-rectangle"></div>
-                <div class="green-rectangle"></div>
-                <div class="dots"></div>
-                <!-- ... outros elementos gráficos ... -->
-            </div>
-
         </div>
     </section>
 </section>
 
 <!-- Modal -->
-<div class="modal t-modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-dark">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Mensagem enviada</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <p class="text-md-center">Aguarde, enviado mensagem.</p>
-            <div class="modal-header text-white text-center">
+            <div class="modal-body text-center">
+                <p>Aguarde, estamos processando sua mensagem...</p>
             </div>
         </div>
     </div>
-</div>
+</div> 
 
-    <!-- Footer -->
-    <footer class="text-center py-4 bg-trasparent text-light">
-        <p>&copy; 2024 Filipe Santos. Todos os direitos reservados.</p>
-    </footer>
+<!-- Footer -->
+<footer class="text-center py-4 bg-transparent text-light">
+    <p>&copy; 2024 Filipe Santos. Todos os direitos reservados.</p>
+</footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Custom JS -->
+<!-- Validação e exibição do modal -->
 <script>
     function validateForm() {
         // Captura os elementos do formulário
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var message = document.getElementById('message').value;
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var message = document.getElementById('message').value.trim();
 
         // Verifica se todos os campos estão preenchidos
         if (name === "" || email === "" || message === "") {
             alert("Por favor, preencha todos os campos.");
             return false; // Impede o envio do formulário
-        } else {
-            $('#exampleModal').examplemodal('show'); // Mostra o modal se o formulário estiver preenchido
-            return true; // Permite o envio do formulário
         }
+
+        // Exibe o modal de "Aguarde"
+        $('#exampleModal').modal('show');
+
+        // Permite o envio do formulário
+        return true;
     }
 </script>
+
 
 </body>
 <script src="validation.js"></script>
