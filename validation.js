@@ -38,7 +38,7 @@ const elements = document.querySelectorAll('.efect')
 
 elements.forEach((elements) => myObserver.observe(elements))
 
-
+//script para direcionamento a pagina de obrigado.
 document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Impede o comportamento padrão do formulário
 
@@ -50,7 +50,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = "/obrigado.html"; // Redireciona manualmente
+            window.location.href = "obrigado.html"; // Redireciona manualmente
         } else {
             alert("Houve um erro ao enviar o formulário. Tente novamente.");
         }
