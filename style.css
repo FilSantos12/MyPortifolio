@@ -158,6 +158,9 @@ footer {
   max-width: 50%;
   height: auto;
   border-radius: 10px;
+  margin-left: -50px;
+  margin-top: 30px;
+  
 }
 
 .hero-icons ion-icon:hover {
@@ -272,6 +275,7 @@ a.alert-link {
   height: 150px; /* Define a altura fixa para todas as imagens */
   object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
   width: 100%; /* Garante que as imagens ocupem toda a largura do contêiner */
+  
 }
 
 /* Remove a linha de contorno (borda) e sombra dos cartões */
@@ -512,14 +516,14 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
     margin-top: 20px; /* Adiciona margem superior para separação */
 }
 
-/* Ajustes de layout responsivo 
+/* Ajustes de layout responsivo */
 @media (max-width: 768px) {
     #download-cv {
-        width: 50%; Garante que o botão seja largo o suficiente em dispositivos móveis 
-        margin-top: 15px; */
+        width: 50%; /* Garante que o botão seja largo o suficiente em dispositivos móveis */
+        margin-top: 15px;
     } 
 
-        /* Pode precisar ajustar o tamanho ou posição dos gráficos em telas menores */
+    /* Pode precisar ajustar o tamanho ou posição dos gráficos em telas menores */
     .background-decorations .purple-rectangle,
     .background-decorations .green-rectangle,
     .background-decorations .dots {
@@ -527,13 +531,59 @@ Estilos para telas de largura mínima de 768px (Tablets e acima) */
         width: auto;
         margin: 0 auto;
     }
-
 }
+
+
+
 
 .card, .carousel-control-prev, .carousel-control-next {
     position: relative;
     z-index: 2; /* Garante que os cartões e controles do carrossel estejam na frente */
 }
+
+/* Estilo base para o contêiner dos ícones */
+.social-icons {
+    display: flex; /* Organiza os ícones lado a lado */
+    gap: 15px; /* Espaçamento entre os ícones */
+    justify-content: flex-start; /* Alinha os ícones à esquerda */
+    margin-top: 10px; /* Espaçamento superior opcional */
+}
+/* Contêiner do botão e ícones */
+.button-and-icons {
+    display: flex; /* Alinha o botão e os ícones lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 15px; /* Espaçamento entre o botão e os ícones */
+    margin-top: 10px; /* Espaçamento superior opcional */
+}
+
+/* Estilo geral para os ícones */
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    object-fit: contain; /* Garante que as imagens fiquem proporcionais */
+    border-radius: 25%; /* Adiciona bordas arredondadas */
+    transition: transform 0.3s ease; /* Adiciona a transição para o hover */
+}
+
+/* Efeito ao passar o mouse */
+.social-icon img:hover {
+    transform: scale(1.2); /* Amplia o ícone levemente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+}
+
+/* Ajustes específicos para telas menores */
+@media (max-width: 480px) {
+    .social-icon img {
+        width: 40px;
+        height: 40px; /* Reduz o tamanho dos ícones */
+    }
+
+    .social-icons {
+        gap: 10px; /* Reduz o espaçamento entre os ícones */
+    }
+}
+
 
 
 

@@ -39,7 +39,27 @@ const elements = document.querySelectorAll('.efect')
 elements.forEach((elements) => myObserver.observe(elements))
 
 
-//Esse código é para a rolagem automatica da pagina
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Impede o comportamento padrão do formulário
+
+    const formData = new FormData(this);
+
+    fetch(this.action, {
+        method: this.method,
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = "/obrigado.html"; // Redireciona manualmente
+        } else {
+            alert("Houve um erro ao enviar o formulário. Tente novamente.");
+        }
+    })
+    .catch(error => {
+        alert("Erro ao enviar o formulário: " + error.message);
+    });
+});
+
 
 
 
