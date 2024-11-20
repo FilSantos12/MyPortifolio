@@ -50,7 +50,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = "obrigado.html"; // Redireciona manualmente
+            window.location.href = "obrigado.html"; // Redireciona manualmente 
         } else {
             alert("Houve um erro ao enviar o formulário. Tente novamente.");
         }
