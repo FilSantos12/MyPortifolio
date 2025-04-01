@@ -140,7 +140,7 @@ footer {
 }
 
 .display-4{
-  color: #ccf381 33%;
+  color: rgba(204, 243, 129, 0.33); /* Verde claro com 33% de opacidade */
 }
 
 .texto{
