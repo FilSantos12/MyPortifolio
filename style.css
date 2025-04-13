@@ -132,7 +132,14 @@ footer {
   margin: 20px 0;
 }
 
-.hero-icons ion-icon {
+.hero-icons ion-icon  {
+  font-size: 4rem; /* Aumenta o tamanho dos ícones */
+  margin: 0 15px;
+  transition: transform 0.3s;
+  color: #ccf381 33%;
+}
+
+.hero-icons i  {
   font-size: 4rem; /* Aumenta o tamanho dos ícones */
   margin: 0 15px;
   transition: transform 0.3s;
