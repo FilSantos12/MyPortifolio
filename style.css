@@ -477,16 +477,6 @@ section { padding: 5rem 2rem; }
   backdrop-filter: blur(6px);
 }
 
-@media (max-width: 600px) {
-  .portfolio-card--main {
-    grid-template-columns: 1fr;
-  }
-  .portfolio-card--main .portfolio-card-img {
-    border-radius: var(--radius) var(--radius) 0 0;
-    min-height: 180px;
-  }
-}
-
 /* ============================================================
    CONTACT
    ============================================================ */
@@ -620,6 +610,7 @@ footer span { color: var(--accent); }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* ── Tablet (até 900px) ── */
 @media (max-width: 900px) {
   .hero-grid,
   .about-grid,
@@ -628,27 +619,33 @@ footer span { color: var(--accent); }
     gap: 2.5rem;
   }
 
-  .hero-image-wrap {
-    order: -1;
+  .hero-image-wrap { order: -1; }
+
+  .hero-image-wrap img { width: 200px; height: 250px; }
+  .hero-image-wrap::before { width: 220px; height: 270px; }
+
+  /* Stats em 2x2 no tablet */
+  .about-stats { grid-template-columns: 1fr 1fr; }
+
+  /* Card destaque colapsa no tablet */
+  .portfolio-card--main {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-card--main .portfolio-card-img {
+    border-radius: var(--radius) var(--radius) 0 0;
+    min-height: 200px;
   }
 
-  .hero-image-wrap img {
-    width: 200px; height: 250px;
-  }
-
-  .hero-image-wrap::before {
-    width: 220px; height: 270px;
-  }
-
-  .about-stats {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  /* Tech icons menores no tablet */
+  .hero-tech ion-icon,
+  .hero-tech i { font-size: 1.5rem; }
 }
 
+/* ── Mobile (até 600px) ── */
 @media (max-width: 600px) {
-  section { padding: 3.5rem 1.2rem; }
+  section { padding: 3rem 1.2rem; }
 
-  .navbar { padding: 1rem 1.2rem; }
+  .navbar { padding: 0.9rem 1.2rem; }
 
   .nav-toggle { display: flex; }
 
@@ -674,14 +671,20 @@ footer span { color: var(--accent); }
 
   .navbar-nav a::after { display: none; }
 
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-stats {
-    grid-template-columns: 1fr 1fr;
-  }
-
+  /* Hero */
+  .hero-name { font-size: 2rem; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { text-align: center; justify-content: center; }
+  .hero-tech { gap: 0.7rem; }
+  .hero-tech ion-icon,
+  .hero-tech i { font-size: 1.4rem; }
+
+  /* Portfolio */
+  .portfolio-grid { grid-template-columns: 1fr; }
+
+  /* Sobre */
+  .about-stats { grid-template-columns: 1fr 1fr; }
+
+  /* Contato */
+  .contact-grid { gap: 2rem; }
 }

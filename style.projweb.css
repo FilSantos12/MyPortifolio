@@ -231,8 +231,20 @@ footer span { color: var(--accent); }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .page-header { padding: 2.5rem 1.2rem 1.5rem; }
+  .featured-layout { grid-template-columns: 1fr; }
+  .project-card--featured .carousel { min-height: 200px; max-height: 240px; }
+  .featured-body { padding: 1.2rem 1.4rem 1.6rem; }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
   .projects-section { padding: 2rem 1.2rem 4rem; }
-  .navbar { padding: 1rem 1.2rem; }
-  .projects-grid { grid-template-columns: 1fr; }
+  .navbar { padding: 0.9rem 1.2rem; }
+  .featured-body h3 { font-size: 1rem; }
+  .featured-list li { font-size: 0.78rem; }
 }
