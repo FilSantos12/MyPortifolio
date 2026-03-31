@@ -1,65 +1,38 @@
- 
- 
- 
- // JavaScript Validar campo de contato, não deixar enviar sem o preechimento.
- /*
- (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-        // Busque todos os formulários aos quais queremos aplicar estilos de validação personalizados do Bootstrap
-        var forms = document.getElementsByClassName('needs-validation');
-        // Passe por cima deles e evite o envio
-        var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-})();
-*/
+// Scroll reveal animation usando Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
 
-//comando do efeito magnetico
-const myObserver = new IntersectionObserver( (entries) => {
-    entries.forEach( (entry) => {
-    if(entry.isIntersecting){
-        entry.target.classList.add('show')
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    } else {
-        entry.target.classList.remove('show')
-    }    
-    } )
-})
+// Envio do formulário de contato
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-const elements = document.querySelectorAll('.efect')
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
 
-elements.forEach((elements) => myObserver.observe(elements))
-
-//script para direcionamento a pagina de obrigado.
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Impede o comportamento padrão do formulário
-
-    const formData = new FormData(this);
-
-    fetch(this.action, {
-        method: this.method,
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = "obrigado.html"; // Redireciona manualmente 
+    fetch(this.action, { method: this.method, body: new FormData(this) })
+      .then(res => {
+        if (res.ok) {
+          window.location.href = 'obrigado.html';
         } else {
-            alert("Houve um erro ao enviar o formulário. Tente novamente.");
+          alert('Houve um erro ao enviar. Tente novamente.');
+          btn.disabled = false;
+          btn.innerHTML = 'Enviar mensagem <i class="bx bx-send"></i>';
         }
-    })
-    .catch(error => {
-        alert("Erro ao enviar o formulário: " + error.message);
-    });
-});
-
-
-
-
+      })
+      .catch(() => {
+        alert('Erro de conexão. Tente novamente.');
+        btn.disabled = false;
+        btn.innerHTML = 'Enviar mensagem <i class="bx bx-send"></i>';
+      });
+  });
+}

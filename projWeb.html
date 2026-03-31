@@ -1,144 +1,539 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filipe Santos</title>
-    <!-- Box icones -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!--Scrool Reveal Rolagem de pagina-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Custom CSS -->
-    <link href="style.projweb.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projetos de desenvolvimento web de Filipe Santos.">
+  <title>Projetos Web — Filipe Santos</title>
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style.projweb.css">
+  <style>
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-track img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+      line-height: 1;
+    }
+
+    .carousel-btn:hover { background: rgba(204,243,129,0.75); color: #0d0d0d; }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      padding: 0;
+    }
+
+    .carousel-dot.active { background: #ccf381; }
+
+    /* ── Tech tags (cards normais) ── */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .card-tags span {
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      background: rgba(72, 49, 212, 0.15);
+      border: 1px solid rgba(72, 49, 212, 0.3);
+      color: #a08ef5;
+    }
+
+    /* ── Video hover-to-play ── */
+    .project-card--video .project-card-media.video {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.35);
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .video-overlay i {
+      font-size: 3rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .project-card--video:hover .video-overlay {
+      opacity: 0;
+    }
+
+    /* ── ProMed Featured Card ── */
+    .project-card--featured {
+      grid-column: 1 / -1;
+      border-color: rgba(204, 243, 129, 0.35);
+      box-shadow: 0 0 0 1px rgba(204, 243, 129, 0.15),
+                  0 20px 60px rgba(204, 243, 129, 0.08);
+      position: relative;
+    }
+
+    .project-card--featured:hover {
+      border-color: rgba(204, 243, 129, 0.6);
+      box-shadow: 0 0 0 1px rgba(204, 243, 129, 0.3),
+                  0 24px 70px rgba(204, 243, 129, 0.14);
+      transform: translateY(-4px);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+      background: rgba(204, 243, 129, 0.15);
+      border: 1px solid rgba(204, 243, 129, 0.45);
+      color: #ccf381;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .featured-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .project-card--featured .carousel {
+      aspect-ratio: unset;
+      height: 100%;
+      min-height: 280px;
+      max-height: 340px;
+      border-radius: 0;
+      background: #f5f0e8;
+    }
+
+    .project-card--featured .carousel-track img {
+      object-fit: contain;
+      background: #f5f0e8;
+    }
+
+    /* IRFlow carousel — fundo claro para screenshots */
+    #irflowTrack img {
+      object-fit: contain;
+      background: #f5f0e8;
+    }
+
+    /* ATMParts carousel — screenshots do site */
+    #atmTrack img {
+      object-fit: cover;
+      background: #1e2a4a;
+    }
+
+    .featured-body {
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .featured-body h3 {
+      font-size: 1.25rem;
+      color: #e8e8e8;
+      margin-bottom: 0.2rem;
+    }
+
+    .featured-body > p { font-size: 0.87rem; }
+
+    .featured-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .featured-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    .featured-list li i {
+      color: #ccf381;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .featured-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .featured-tags span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      background: rgba(72, 49, 212, 0.2);
+      border: 1px solid rgba(72, 49, 212, 0.35);
+      color: #a08ef5;
+    }
+
+    @media (max-width: 700px) {
+      .featured-layout { grid-template-columns: 1fr; }
+      .project-card--featured .carousel { min-height: 200px; }
+      .featured-body { padding: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
-                            <!-- Navbar -->
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <img src="img/logo.png" width="36" height="36" alt="Logo">
+      Filipe Santos
+    </a>
+    <ul class="navbar-nav">
+      <li>
+        <a href="index.html">
+          <ion-icon name="home-outline"></ion-icon> Home
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-trasparent">
-        <a class="navbar-brand" href="index.html">
-            <img src="img/logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
-            Meus Projetos
-        </a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">      
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Desenvolvimento <span>Web</span></h1>
+    <p>Projetos criados com foco em design responsivo, desempenho e experiência do usuário.</p>
+  </div>
 
-                            <!-- Ícone de casa -->
+  <!-- PROJECTS -->
+  <div class="projects-section">
+    <div class="projects-grid">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <ion-icon name="home-outline"></ion-icon> Home
-                    </a>
-                </li>           
+      <!-- Projeto: ProMed (DESTAQUE) -->
+      <div class="project-card project-card--featured reveal">
+        <div class="featured-badge">⭐ Projeto Principal</div>
+        <div class="featured-layout">
+          <div class="carousel" id="promedCarousel">
+            <div class="carousel-track" id="promedTrack">
+              <img src="img/promed_img1.png" alt="ProMed - Landing Page">
+              <img src="img/promed_img2.png" alt="ProMed - Médicos">
+              <img src="img/promed_img3.png" alt="ProMed - Painel Admin">
+              <img src="img/promed_img4.png" alt="ProMed - Agendamento">
+              <img src="img/promed_img5.png" alt="ProMed - Área do Médico">
+              <img src="img/promed_img6.png" alt="ProMed - Tela 6">
+              <img src="img/promed_img7.png" alt="ProMed - Tela 7">
+            </div>
+            <button class="carousel-btn prev" onclick="promedSlide(-1)">&#8249;</button>
+            <button class="carousel-btn next" onclick="promedSlide(1)">&#8250;</button>
+            <div class="carousel-dots" id="promedDots"></div>
+          </div>
+          <div class="project-card-body featured-body">
+            <h3>ProMed — Plataforma Médica</h3>
+            <p>Plataforma completa de telemedicina desenvolvida do zero, com múltiplos perfis de acesso: <strong>paciente</strong>, <strong>médico</strong> e <strong>administrador</strong>.</p>
+            <ul class="featured-list">
+              <li><i class="bx bx-check-circle"></i> Agendamento de consultas por especialidade</li>
+              <li><i class="bx bx-check-circle"></i> Área do médico com controle de agenda</li>
+              <li><i class="bx bx-check-circle"></i> Painel administrativo com dashboard</li>
+              <li><i class="bx bx-check-circle"></i> Listagem de médicos e especialidades</li>
+              <li><i class="bx bx-check-circle"></i> Sistema de autenticação por perfil</li>
             </ul>
+            <div class="featured-tags">
+              <span>React</span><span>TypeScript</span><span>Node.js</span><span>Laravel</span><span>MySQL</span>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
 
-                            <!--Conteudo da pagina-->
-
-    <section class="efect"> 
-        <div class="card-columns">
-            <div class="card">
-                <a href="https://pji-univesp-grp13.github.io/proj-integrador-frontend/">
-                <img class="card-img-top" src="img/projeto1_img2.png" alt="Imagem de capa do card">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">Projeto Web</h5>
-                    <p class="card-text">Esta pagina web foi desenvolvida para moradores relatarem 
-                    os problemas do bairro, ruas e serviço da cidade.</p>
-                </div>
-            </div>
-
-                <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="img/video.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Sistema Web</h5>
-                        <p class="card-text">Pagina desenvolvida para um studio de tattoo, onde os clientes
-                            agendam os horarios e envia uma breve ideia de desenho.</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="img/CIR.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Controle de Imposto de Renda</h5>
-                        <p class="card-text">O CIR (Controle de Imposto de Renda) é um sistema desenvolvido com o objetivo de facilitar e organizar todos os processos relacionados à declaração do imposto de renda. 
-                            Projetado especialmente para contadores e escritórios de contabilidade, o CIR permite o gerenciamento completo dos clientes, acompanhamento das etapas de cada processo e visualização intuitiva dos dados por meio de dashboards.</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video class="embed-responsive-item" controls>
-                            <source src="img/Rveiculos.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
-                        </video>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Controle de Veiculos</h5>
-                        <p class="card-text">O Sistema de Cadastro de Veículos foi desenvolvido para atender uma nescessiadade especifica de uma empresa de depachante localizada na cidade de Fortaleza-CE (Paulista Despachante). <br>
-                            Foi Solicitado um sistema WEB podendo ser acessado de qualquer lugar por meio de diferentes dispositvos.<br>
-                            Com este sistema, é possível cadastrar veículos individualmente ou em massa através de upload de documentos PDF, extraindo automaticamente informações como placa e tipo de documento para preenchimento do cadastro.</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                </div>
-
-            <div class="card bg-primary text-white text-center p-3">
-                <blockquote class="blockquote mb-0">
-                <p>"Desenvolvo projetos web com foco em design responsivo, desempenho e funcionalidade, criando experiências digitais personalizadas. 
-                    Com atenção aos detalhes, entrego sites modernos, acessíveis e adaptáveis a diferentes dispositivos."</p>
-                <footer class="blockquote-footer">
-                    <small>
-                    <cite title="Título da fonte"></cite>
-                    </small>
-                </footer>
-                </blockquote>
-            </div>
-
-            <div class="card">
-                <a href="https://filsantos12.github.io/Miguel10anos/">
-                <img class="card-img" src="img/projeto1_img5.jpg" alt="Imagem do card">
-                </a>
-            </div>
-                <div class="card">
-                <div class="card-body">
-                <h5 class="card-title">Pagina Web para aniversario e eventos</h5>
-                <p class="card-text">Páginas personalizadas para aniversários e eventos, criando experiências únicas e marcantes. 
-                    Cada projeto é pensado com carinho, utilizando design responsivo, elementos interativos e temas exclusivos que refletem o estilo e a personalidade do evento. ".</p>
-                <p class="card-text"><small class="text-muted"></small></p>
-                </div>
-            </div>
+      <!-- Projeto: Denúncias -->
+      <div class="project-card reveal">
+        <img class="project-card-media" src="img/projeto1_img2.png" alt="Sistema de Denúncias">
+        <div class="project-card-body">
+          <h3>Sistema de Denúncias</h3>
+          <p>Plataforma web para moradores relatarem problemas do bairro, ruas e serviços da cidade. Desenvolvimento full-stack com foco em acessibilidade.</p>
+          <div class="card-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Django</span>
+          </div>
         </div>
-    </section>       
-        <!-- Footer -->
-    <footer class="text-center py-4 bg-trasparent text-light">
-        <p>&copy; 2024 Filipe Santos. Todos os direitos reservados.</p>
-    </footer>
+      </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+      <!-- Projeto: IRFlow -->
+      <div class="project-card reveal">
+        <div class="carousel" id="irflowCarousel">
+          <div class="carousel-track" id="irflowTrack">
+            <img src="img/irflow_img1.png" alt="IRFlow - Login">
+            <img src="img/irflow_img2.png" alt="IRFlow - Dashboard">
+            <img src="img/irflow_img3.png" alt="IRFlow - Clientes">
+            <img src="img/irflow_img4.png" alt="IRFlow - Usuários">
+            <img src="img/irflow_img5.png" alt="IRFlow - Processo">
+            <img src="img/irflow_img6.png" alt="IRFlow - Editar Processo">
+          </div>
+          <button class="carousel-btn prev" onclick="irflowSlide(-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="irflowSlide(1)">&#8250;</button>
+          <div class="carousel-dots" id="irflowDots"></div>
+        </div>
+        <div class="project-card-body">
+          <h3>IR.Flow — Gestão de Declarações IRPF</h3>
+          <p>Sistema interno para escritórios de contabilidade gerenciarem todo o fluxo de declarações de imposto de renda: clientes, processos, status e usuários.</p>
+          <div class="card-tags">
+            <span>React</span><span>TypeScript</span><span>Laravel</span><span>SQLite</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto: ATMParts -->
+      <div class="project-card reveal">
+        <div class="carousel" id="atmCarousel">
+          <div class="carousel-track" id="atmTrack">
+            <img src="img/atm_img1.png" alt="ATMParts - Hero">
+            <img src="img/atm_img2.png" alt="ATMParts - Produtos">
+            <img src="img/atm_img3.png" alt="ATMParts - Contato">
+          </div>
+          <button class="carousel-btn prev" onclick="atmSlide(-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="atmSlide(1)">&#8250;</button>
+          <div class="carousel-dots" id="atmDots"></div>
+        </div>
+        <div class="project-card-body">
+          <h3>ATMParts — Catálogo de Automação</h3>
+          <p>Site institucional e catálogo de produtos para empresa de soluções mecatrônicas: motoredutores, travas eletrônicas, leitor biométrico e fechadura BLE.</p>
+          <div class="card-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="project-card quote reveal">
+        <blockquote>
+          "Desenvolvo projetos web com foco em design responsivo, desempenho e funcionalidade,
+          criando experiências digitais personalizadas e adaptáveis a diferentes dispositivos."
+        </blockquote>
+      </div>
+
+      <!-- Projeto: Tattoo Studio (vídeo) -->
+      <div class="project-card project-card--video reveal">
+        <div class="project-card-media video">
+          <video muted preload="none" loop>
+            <source src="img/video.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"><i class="bx bx-play-circle"></i></div>
+        </div>
+        <div class="project-card-body">
+          <h3>Agendamento — Estúdio de Tattoo</h3>
+          <p>Página onde clientes agendam horários e enviam referências de desenho. Interface intuitiva e responsiva.</p>
+          <div class="card-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto: Veículos (vídeo) -->
+      <div class="project-card project-card--video reveal">
+        <div class="project-card-media video">
+          <video muted preload="none" loop>
+            <source src="img/Rveiculos.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"><i class="bx bx-play-circle"></i></div>
+        </div>
+        <div class="project-card-body">
+          <h3>Cadastro de Veículos — Paulista Despachante</h3>
+          <p>Cadastro individual ou em massa via upload de PDFs, extraindo automaticamente placa e tipo de documento.</p>
+          <div class="card-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto: Agendamento Online (vídeo) -->
+      <div class="project-card project-card--video reveal">
+        <div class="project-card-media video">
+          <video muted preload="none" loop>
+            <source src="img/estetica.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"><i class="bx bx-play-circle"></i></div>
+        </div>
+        <div class="project-card-body">
+          <h3>Sistema de Agendamento Online</h3>
+          <p>Permite selecionar serviço, registrar dados e escolher horário disponível — prático e intuitivo.</p>
+          <div class="card-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Hover-to-play para cards de vídeo
+    document.querySelectorAll('.project-card--video').forEach(card => {
+      const video = card.querySelector('video');
+      card.addEventListener('mouseenter', () => video.play());
+      card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    });
+
+    // ATMParts Carousel
+    (function () {
+      const track = document.getElementById('atmTrack');
+      const dotsEl = document.getElementById('atmDots');
+      const total = track.children.length;
+      let current = 0, timer;
+
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === current)
+        );
+      }
+
+      function atmSlide(dir) { clearInterval(timer); goTo(current + dir); startAuto(); }
+      window.atmSlide = atmSlide;
+
+      function startAuto() { timer = setInterval(() => goTo(current + 1), 3000); }
+      startAuto();
+    })();
+
+    // IRFlow Carousel
+    (function () {
+      const track = document.getElementById('irflowTrack');
+      const dotsEl = document.getElementById('irflowDots');
+      const total = track.children.length;
+      let current = 0, timer;
+
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === current)
+        );
+      }
+
+      function irflowSlide(dir) { clearInterval(timer); goTo(current + dir); startAuto(); }
+      window.irflowSlide = irflowSlide;
+
+      function startAuto() { timer = setInterval(() => goTo(current + 1), 3500); }
+      startAuto();
+    })();
+
+    // ProMed Carousel
+    const track  = document.getElementById('promedTrack');
+    const dotsEl = document.getElementById('promedDots');
+    const total  = track.children.length;
+    let current  = 0;
+    let timer;
+
+    // create dots
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+
+    function promedSlide(dir) { clearInterval(timer); goTo(current + dir); startAuto(); }
+
+    function startAuto() { timer = setInterval(() => goTo(current + 1), 3500); }
+    startAuto();
+  </script>
 
 </body>
-    <script src="validation.js"></script>
 </html>

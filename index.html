@@ -1,372 +1,251 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filipe Santos</title>
-    <!-- Box icones -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Filipe Santos — Desenvolvedor Full-Stack - WEB">
+  <title>Filipe Santos — DEV</title>
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-trasparent">
-        <a class="navbar-brand" href="#">
-            <img src="img/logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
-            MEU PORTFOLIO
-        </a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-            </ul>
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">
+      <img src="img/logo.png" width="36" height="36" alt="Logo">
+      Filipe Santos
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="navbar-nav" id="navMenu">
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-content">
+          <span class="hero-tag">Disponível para projetos</span>
+          <h1 class="hero-name">
+            Olá, eu sou<br>
+            <span class="accent">Filipe Santos</span>
+          </h1>
+          <p class="hero-role">
+            <strong>Desenvolvedor Full-Stack WEB</strong>
+          </p>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">Ver projetos</a>
+            <a href="https://drive.google.com/file/d/1ApP4c7hNDNJa7ozPQPrl85s6f10sazIF/view?usp=drive_link"
+               target="_blank" rel="noopener" class="btn btn-outline">Baixar CV</a>
+          </div>
+
+          <div class="hero-tech">
+            <span class="hero-tech-label">Stack:</span>
+            <ion-icon name="logo-html5" title="HTML5"></ion-icon>
+            <ion-icon name="logo-css3" title="CSS3"></ion-icon>
+            <ion-icon name="logo-javascript" title="JavaScript"></ion-icon>
+            <i class="devicon-react-original" title="React"></i>
+            <i class="devicon-typescript-plain" title="TypeScript"></i>
+            <i class="devicon-nodejs-plain" title="Node.js"></i>
+            <i class="devicon-php-plain" title="PHP"></i>
+            <i class="devicon-laravel-plain" title="Laravel"></i>
+            <i class="devicon-mysql-plain" title="MySQL"></i>
+            <ion-icon name="logo-github" title="GitHub"></ion-icon>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-<section class="efect">
-    <section class="hero-section text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Coluna com o texto e ícones -->
-                <div class="col-md-6 text-center text-md-left">
-                    <div class="texto">
-                        <div class="efect">
-                            <h1 class="display-4">Olá, eu sou</h1>
-                            <h1 class="display-4">Filipe Santos</h1>
-                        </div>
-                    </div>
-                    <div class="hero-icons">
-                        <div class="icons">
-                            <div class="efect">
-                                <ion-icon name="logo-html5"></ion-icon>
-                            </div>
-                            <div class="efect">
-                                <ion-icon name="logo-css3"></ion-icon>
-                            </div>
-                            <div class="efect">
-                                <ion-icon name="logo-javascript"></ion-icon>
-                            </div>
-                            <div class="efect">                               
-                                <i class="devicon-microsoftsqlserver-plain-wordmark"></i>         
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-icons">
-                        <div class="icons">
-                            <div class="efect">
-                                <i class="devicon-php-plain"></i>
-                            </div>
-                            <div class="efect">                              
-                                <i class="devicon-csharp-plain"></i>        
-                            </div>  
-                            <div class="efect">
-                                <ion-icon name="logo-github"></ion-icon>
-                            </div>
-                            <div class="efect">                                
-                                <i class="devicon-mysql-plain-wordmark"></i>          
-                            </div>                 
-                        </div>
-                    </div>
-
-                    <div class="texto">
-                        <div class="efect">
-                            <p class="lead">Desenvolvedor Full-Stack | 
-                                DBA  QA | Data Entry</p>
-                            <a href="#portfolio" class="btn3 btn-primary">Ver meu trabalho</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Coluna com a imagem -->
-                <div class="col-md-6 text-center">
-                    <div class="img">
-                        <div class="efect">
-                            <img src="img/Filipe1.png" alt="Foto de Filipe Santos" class="img-fluid">
-                             <div class="background-decorations">
-                                <!-- Contêiner para os elementos gráficos de fundo -->
-                               <!--<div class="purple-rectangle"></div> Retângulo roxo -->
-                                <div class="green-rectangle"></div> <!-- Retângulo verde -->
-                                <div class="dots"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots2"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots3"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots4"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots5"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots6"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots7"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="dots8"></div> <!-- Conjunto de pontos brancos -->
-                                <div class="zigzag"></div> <!-- Padrão ziguezague branco -->
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-image-wrap reveal reveal-delay-2">
+          <img src="img/Filipe1.png" alt="Foto de Filipe Santos">
         </div>
-    </section>
-</section>
 
-    <!-- About Section -->
-    <section class="efect"> 
-    <section id="about" class="py-5 text-white">
-        <div class="container d-flex flex-column align-items-center">
-            <h1>Sobre Mim</h1>
-
-            <p>Cursando Bacharelado em Tecnologia da Informação, tenho direcionado minha carreira para o desenvolvimento de sistemas, especialmente na área de aplicações web e suporte técnico especializado. Atualmente, atuo com: Desenvolvimento de sistemas focados em soluções eficientes e inovadoras. Suporte técnico em HelpDesk, Field Service e Service Desk interno e externo.
-                Implantação de sistemas e treinamento de usuários, alinhados às necessidades do cliente.
-            </p>
-
-            <p>Com formação inicial em Mecatrônica Industrial, adquiri conhecimentos em automação e projetos eletrônicos, que agora complementam minha atuação em TI. Essa base diversificada fortalece minha visão integradora para desenvolver soluções robustas, otimizadas e voltadas para a web.</p>
-            
-                
-            <!--Botão baixar CV-->
-            <a href="https://drive.google.com/file/d/1BqbthonJMrOstvbzA9G2f2gzUTXs5efc/view?usp=sharing" download class="btn2 btn-primary" id="download-cv">Baixar CV</a>
-            <div class="background-decorations">
-            
-                <!-- Contêiner para os elementos gráficos de fundo -->
-                        <div class="purple-rectangle"></div> <!-- Retângulo roxo -->
-                        <div class="green-rectangle"></div> <!-- Retângulo verde -->
-                        <div class="dots"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots2"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots3"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots4"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots5"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots6"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots7"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="dots8"></div> <!-- Conjunto de pontos brancos -->
-                        <div class="zigzag"></div> <!-- Padrão ziguezague branco -->
-                    </div>
-                </div>
-    </section>
-</section>
-
-    <!-- Portfolio Section -->
-<section class="efect">
-    <section id="portfolio" class="py-5 dark text-white">
-        <div class="container d-flex flex-column align-items-center">
-            <div class="background-decorations">
-                <!-- Contêiner para os elementos gráficos de fundo -->
-                <div class="purple-rectangle"></div> <!--Retângulo roxo -->
-                <div class="green-rectangle"></div> <!-- Retângulo verde -->
-                <div class="dots"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots2"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots3"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots4"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots5"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots6"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots7"></div> <!-- Conjunto de pontos brancos -->
-                <div class="dots8"></div> <!-- Conjunto de pontos brancos -->
-                <div class="zigzag"></div> <!-- Padrão ziguezague branco -->
-            </div> 
-        <!--<div class="container"> -->
-            <h1>Portfólio</h1>
-            <div class="row">
-        <!-- Project 1 --> 
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div id="project1Carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a href="projWeb.html">
-                                        <img src="img/projeto1_img1.png" class="d-block w-100" alt="Projeto 1 - Imagem 1">
-                                    </a>    
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="projWeb.html">
-                                        <img src="img/projeto1_img2.png" class="d-block w-100" alt="Projeto 1 - Imagem 2">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="projWeb.html">
-                                        <img src="img/projeto1_img3.png" class="d-block w-100" alt="Projeto 1 - Imagem 3">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <i class="bx bx-code-alt"></i>
-                            <h5 class="card-title">Desenvolvimento Web</h5>
-                            <p class="card-text">Sou um desenvolvedor web apaixonado por criar soluções digitais inovadoras e eficazes. Com 2 anos de experiência, tenho um forte background em desenvolvimento front-end e back-end, e estou constantemente aprimorando minhas habilidades para acompanhar as tendências e tecnologias emergentes.</p>
-                        </div>
-                    </div>
-                </div>   
-        <!-- Project 2 -->
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div id="project2Carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a href="susten.Software.html">
-                                        <img src="img/projeto2_img1.png" class="d-block w-100" alt="Projeto 2 - Imagem 1">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="susten.Software.html">
-                                        <img src="img/projeto2_img2.png" class="d-block w-100" alt="Projeto 2 - Imagem 2">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="susten.Software.html">
-                                        <img src="img/projeto2_img3.png" class="d-block w-100" alt="Projeto 2 - Imagem 3">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <i class="bx bxs-terminal"></i>
-                            <h5 class="card-title">Sustentação de Software</h5>
-                            <p class="card-text">Desenvolvimento de software em C#, com experiência na manutenção, melhoria contínua e correção de erros em sistemas de software. Ao longo de 1 ano na indústria, dediquei-me a garantir a estabilidade, performance e evolução de aplicações críticas, assegurando que elas atendam consistentemente às necessidades dos usuários e dos negócios.</p>
-                        </div>
-                    </div>
-                </div>  
-        <!-- Project 3 -->
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div id="project3Carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a href="dba.html">
-                                        <img src="img/projeto3_img4.png" class="d-block w-100" alt="Projeto 3 - Imagem 1">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="dba.html">
-                                        <img src="img/projeto3_img2.png" class="d-block w-100" alt="Projeto 3 - Imagem 2">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="dba.html">
-                                        <img src="img/projeto3_img3.png" class="d-block w-100" alt="Projeto 3 - Imagem 3">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <i class="bx bxs-data"></i>
-                            <h5 class="card-title"> DBA - Freelancer</h5>
-                            <p class="card-text">Experiente na Administração de Banco de Dados (DBA) com uma paixão por garantir a integridade, segurança e performance de sistemas de dados críticos. Com 1 ano de atuação na área, tenho uma sólida expertise em projetar, implementar e otimizar infraestruturas de banco de dados para suportar eficazmente as necessidades operacionais..</p>
-                            <p>Profissional freelance especializado em inserção de dados, oferecendo serviços eficientes e precisos para ajudar empresas a organizar e manter suas informações de maneira eficaz. Com 2 anos de experiência, tenho trabalhado com uma variedade de clientes e sistemas, garantindo sempre a entrega de resultados de alta qualidade e dentro dos prazos estabelecidos.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</section>
-
-<!-- Contact Section -->
-<section class="efect"> 
-    <section id="contact" class="py-5 text-white">
-        <div class="container">
-            <h2>Contato</h2>
-            <form id="contactForm" action="https://formsubmit.co/filipe.rodri.stos@gmail.com" method="POST" onsubmit="return validateForm()">
-                <input type="hidden" name="_next" value="obrigado.html"/>
-                <input type="hidden" name="_captcha" value="false">
-                
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" autocomplete="off" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <textarea class="form-control" name="Mensagem" id="message" rows="3" placeholder="Sua mensagem" autocomplete="off" required></textarea>
-                </div>    
-
-                    <!-- Botão para enviar -->
-                <div class="button-and-icons">
-                    <button type="submit" class="btn2 btn-primary">
-                        Enviar
-                    </button> 
-
-                    <div class="social-icons">
-                        <!-- Link para o WhatsApp -->
-                        <a href="https://wa.me/5515981164972" target="_blank" rel="noopener" class="social-icon whatsapp-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                        </a>
-
-                        <!-- Link para LinkedIn -->
-                        <a href="https://www.linkedin.com/in/filipe-rodrigues-dos-santos-79781894/" target="_blank" rel="noopener" class="social-icon linkedin-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
-                        </a>
-
-                        <!-- Link para GitHub -->
-                        <a href="https://github.com/FilSantos12" target="_blank" rel="noopener" class="social-icon github-icon">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-</section>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-dark">
-                <h5 class="modal-title" id="exampleModalLabel">Mensagem enviada</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <p>Aguarde, estamos processando sua mensagem...</p>
-            </div>
-        </div>
+      </div>
     </div>
-</div> 
+  </section>
 
-<!-- Footer -->
-<footer class="text-center py-4 bg-transparent text-light">
-    <p>&copy; 2024 Filipe Santos. Todos os direitos reservados.</p>
-</footer>
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
 
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="about-text reveal">
+          <p class="section-title">Sobre <span>Mim</span></p>
+          <p class="section-subtitle">Tecnologia de informação com base em mecatrônica</p>
 
-<!-- Validação e exibição do modal -->
-<script>
-    function validateForm() {
-        // Captura os elementos do formulário
-        var name = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var message = document.getElementById('message').value.trim();
+          <p>
+            Sou Bacharel em Tecnologia da Informação com 3 anos e meio de experiência em desenvolvimento web, criando sistemas modernos, funcionais e voltados para resultados. Atuo no desenvolvimento de aplicações completas, desde o planejamento até a implantação, sempre priorizando performance, usabilidade e eficiência.
+            <p>
+            Tenho experiência na construção de sistemas personalizados para atender necessidades reais de negócio, além de atuar com suporte, manutenção e evolução de aplicações já existentes.
+          </p>
+          </p>
+          <p>
+            Minha formação em Mecatrônica Industrial complementa minha atuação com uma visão analítica e estruturada, contribuindo para o desenvolvimento de soluções robustas e bem planejadas.s.
+          </p>
 
-        // Verifica se todos os campos estão preenchidos
-        if (name === "" || email === "" || message === "") {
-            alert("Por favor, preencha todos os campos.");
-            return false; // Impede o envio do formulário
-        }
+          <a href="https://drive.google.com/file/d/1ApP4c7hNDNJa7ozPQPrl85s6f10sazIF/view?usp=drive_link"
+             target="_blank" rel="noopener" class="btn btn-primary">Baixar CV</a>
+        </div>
 
-        // Exibe o modal de "Aguarde"
-        $('#exampleModal').modal('show');
+        <div class="about-stats reveal reveal-delay-1">
+          <div class="stat-card">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Anos em Dev Web</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Projetos entregues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Ano em C# </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Anos em DBA </div>
+          </div>
+        </div>
 
-        // Permite o envio do formulário
-        return true;
-    }
-</script>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title reveal">Meu <span>Portfólio</span></h2>
+      <p class="section-subtitle reveal">Clique em um cartão para ver os detalhes</p>
+
+      <div class="portfolio-grid">
+
+        <!-- Card 1 -->
+        <a href="projWeb.html" class="portfolio-card reveal">
+          <img src="img/projeto1_img1.png" alt="Desenvolvimento Web" class="portfolio-card-img">
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-icon"><i class="bx bx-code-alt"></i></div>
+            <h3>Desenvolvimento Web</h3>
+            <p>Soluções web modernas com foco em desempenho e experiência do usuário. Front-end e back-end integrados.</p>
+            <span class="portfolio-card-link">Ver projetos <i class="bx bx-right-arrow-alt"></i></span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="susten.Software.html" class="portfolio-card reveal reveal-delay-1">
+          <img src="img/projeto2_img1.png" alt="Sustentação de Software" class="portfolio-card-img">
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-icon"><i class="bx bxs-terminal"></i></div>
+            <h3>Sustentação de Software</h3>
+            <p>Manutenção e melhoria contínua em sistemas C#. Estabilidade, performance e evolução de aplicações críticas.</p>
+            <span class="portfolio-card-link">Ver projetos <i class="bx bx-right-arrow-alt"></i></span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="dba.html" class="portfolio-card reveal reveal-delay-2">
+          <img src="img/projeto3_img4.png" alt="DBA" class="portfolio-card-img">
+          <div class="portfolio-card-body">
+            <div class="portfolio-card-icon"><i class="bx bxs-data"></i></div>
+            <h3>DBA</h3>
+            <p>Administração de banco de dados, manutenção de ERPs e proteção de dados para empresas e clientes.</p>
+            <span class="portfolio-card-link">Ver projetos <i class="bx bx-right-arrow-alt"></i></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <h2 class="section-title">Entre em <span>Contato</span></h2>
+          <p>
+            Tem um projeto em mente ou quer conversar sobre oportunidades?
+            Me manda uma mensagem — responderei o mais rápido possível.
+          </p>
+
+          <div class="social-links">
+            <a href="https://wa.me/5515981164972" target="_blank" rel="noopener"
+               class="social-link" title="WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+            <a href="https://www.linkedin.com/in/filipe-rodrigues-dos-santos-79781894/"
+               target="_blank" rel="noopener" class="social-link social-link-icon" title="LinkedIn">
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com/FilSantos12" target="_blank" rel="noopener"
+               class="social-link" title="GitHub">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form reveal reveal-delay-1"
+              action="https://formsubmit.co/filipe.rodri.stos@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="obrigado.html">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" class="form-control"
+                   placeholder="Seu nome" autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control"
+                   placeholder="seu@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="Mensagem" class="form-control"
+                      placeholder="Escreva sua mensagem..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Enviar mensagem <i class="bx bx-send"></i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="validation.js"></script>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => menu.classList.remove('open'))
+    );
+  </script>
 
 </body>
-<script src="validation.js"></script>
 </html>

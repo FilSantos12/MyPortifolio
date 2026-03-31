@@ -1,596 +1,627 @@
-/* Importar fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-html {
+:root {
+  --bg:        #0d0d0d;
+  --bg-card:   rgba(255, 255, 255, 0.04);
+  --border:    rgba(255, 255, 255, 0.08);
+  --primary:   #4831d4;
+  --accent:    #ccf381;
+  --text:      #e8e8e8;
+  --text-muted:#888;
+  --radius:    12px;
+  --transition: 0.3s ease;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
   font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
   font-size: 16px;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  background-color: #121212;
-  color: #ffffff;
-  background-image: linear-gradient(to left,#ccf381 33%, #4831d4 67%);
-  background-size: 500% 100%;
-  animation: degrade-animado 10s infinite alternate;
-  margin: 0;
-  padding: 0;
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p  { color: var(--text-muted); }
+
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
 }
 
-
-/* Animação de gradiente 
-@keyframes degrade-animado {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-*/
-
-
-.form-control{
-  background-color: #4831d4 67%;
-  color: #ccf381 33%;
+.section-title span {
+  color: var(--accent);
 }
 
-.py-5{
-  background-color: #ccf381 33%; /*Style do sobre min*/
-}
-.container {
-  color: #4831d4 67%; /*Style do sobre min*/
-}
-
-.btn{
-  color: #4831d4 /*Style do sobre min*/;
-  background-color: #ccf381;
-  border-color: #4831d4;
-}
-section {
-  display: grid;
-  align-items: center;
-  min-height: 100vh;
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
 }
 
-.hero-section {
-  background: transparent; /* Transparente para ver o gradiente de fundo */
-  padding: 100px 0;
-}
-
-.hero-section .display-4 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero-section .lead {
-  font-size: 1.25rem;
-  margin-bottom: 40px;
-}
-
-.hero-section .btn-primary {
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-#about p {
-  font-size: 1.2rem; /* ou qualquer tamanho que você preferir */
-  position: relative;
-  z-index: 2;
-}
-
-
-#about, #contact {
-  padding: 60px 0;
-}
-
-#contact h2 {
-    position: relative;
-    z-index: 10; /* Certifique-se de que o z-index é maior que o do retângulo */
-}
-
-.background-decorations .purple-rectangle {
-    position: relative;
-    z-index: 1; /* O retângulo ficará atrás do texto */
-}
-
-.about, .btn-primary {
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-#portfolio {
-  background: transparent; /* Transparente para ver o gradiente de fundo */
-  color: #ffffff;
-  padding: 60px 0;
-}
-
-#portfolio .card {
-  transition: transform 0.3s;
-}
-
-#portfolio .card:hover {
-  transform: scale(1.05);
-}
-
-#portfolio .card {
-  background-color: transparent; /* Transparente para ver o gradiente de fundo */
-  color: #ffffff;
-}
-
-#portfolio .card .bx {
-  font-size: 3rem; /* Ajuste este valor para o tamanho desejado */
-}
-
-footer {
-  background: #4831d4 67%;
-  color: #ccf381 33%;
-}
-
-.hero-icons {
-  margin: 20px 0;
-}
-
-.hero-icons ion-icon  {
-  font-size: 4rem; /* Aumenta o tamanho dos ícones */
-  margin: 0 15px;
-  transition: transform 0.3s;
-  color: #ccf381 33%;
-}
-
-.hero-icons i  {
-  font-size: 4rem; /* Aumenta o tamanho dos ícones */
-  margin: 0 15px;
-  transition: transform 0.3s;
-  color: #ccf381 33%;
-}
-
-.display-4{
-  color: #ccf381 33%; /* Verde claro com 33% de opacidade */
-}
-
-.texto{
-  color: #ccf381 33%;
-}
-
-.btn-primary{
-  color: #4831d4;
-  background-color: #ccf381;
-  border-color: #4831d4;
-}
-
-
-.hero-section img {
-  max-width: 50%;
-  height: auto;
-  border-radius: 10px;
-  margin-left: -50px;
-  margin-top: 30px;
-  
-}
-
-.hero-icons ion-icon:hover {
-  transform: scale(1.2); /* Efeito de zoom ao passar o mouse sobre os ícones */
-}
-
-/* Modal */
-.t-modal .modal-content {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: #333333;
-}
-
-.t-modal .modal-header {
-  padding: 30px 15px;
-}
-
-.t-modal .modal-title {
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.t-modal .modal-title,
-.t-modal .close {
-  color: #fff;
-}
-
-/* Página de obrigado */
-body {
-  background-color: #000;
-  color: #4831d4;
-}
-
-.alert-light {
-  background-color: #4831d4;
-  color: #ccf381;
-}
-
-.container {
-  margin-top: 50px;
-}
-
-a.alert-link {
-  color: #007bff;
-}
-
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
-
-.card-img, .card-img-bottom {
-  width: 40%; /* Ajuste a largura conforme necessário */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 0 auto; /* Centraliza a imagem horizontalmente */
-  display: block; /* Para garantir que a centralização funcione */
-  background-color: #4831d4;
-}
-
-/* Parâmetros efeito magnético de rolagem */
-.efect {
-  opacity: 0;
-  filter: blur(15px);
-  transform: translate(-100%);
-  transition: all 1.3s;
-}
-
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translate(0);
-  transition: all 1.3s;
-}
-
-/* Efeito e transição da foto */
-.img {
-  transition-delay: 400ms;
-}
-
-.texto {
-  transition-delay: 400ms;
-}
-
-/* Comando é a posição e o tempo de efeito */
-.icons {
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-.icons :nth-child(1) {
-  transition-delay: 300ms;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--text);
 }
 
-.icons :nth-child(2) {
-  transition-delay: 600ms;
+.navbar-brand img { border-radius: 6px; }
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
-.icons :nth-child(3) {
-  transition-delay: 900ms;
+.navbar-nav a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+  position: relative;
 }
 
-.icons :nth-child(4) {
-  transition-delay: 1200ms;
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
 }
 
-.icons :nth-child(5) {
-  transition-delay: 1500ms;
+.navbar-nav a:hover { color: var(--accent); }
+.navbar-nav a:hover::after { width: 100%; }
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
 }
 
-/* Ajuste para garantir que todas as imagens do portfólio tenham o mesmo tamanho */
-.card img {
-  height: 150px; /* Define a altura fixa para todas as imagens */
-  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
-  width: 100%; /* Garante que as imagens ocupem toda a largura do contêiner */
-  
+.nav-toggle span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: var(--transition);
 }
 
-/* Remove a linha de contorno (borda) e sombra dos cartões */
-.card {
-  border: none; /* Remove a borda do cartão */
-  box-shadow: none; /* Remove a sombra do cartão */
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
 }
 
-/* Contêiner para os elementos gráficos de fundo */
-.background-decorations {
-    position: absolute; /* Permite que os elementos sejam posicionados em relação ao contêiner pai */
-    top: 0; /* Posiciona o contêiner no topo */
-    left: 0; /* Posiciona o contêiner à esquerda */
-    width: 100%; /* Largura igual ao contêiner pai */
-    height: 100%; /* Altura igual ao contêiner pai */
+.btn-primary {
+  background: var(--accent);
+  color: #0d0d0d;
 }
 
-/* Estilo para o retângulo roxo */
-.purple-rectangle {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 1cm; /* Largura do retângulo */
-    height: 100px; /* Altura do retângulo */
-    background-color: #6B3FC7; /* Cor de fundo roxa */
-    top: 0; /* Posiciona o retângulo no topo */
-    left: 0; /* Posiciona o retângulo à esquerda */
-    z-index: 1;
+.btn-primary:hover {
+  background: #d8f590;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(204, 243, 129, 0.25);
 }
 
-
-/* Estilo para o retângulo verde */
-.green-rectangle {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    width: 1cm; /* Largura do retângulo */
-    height: 100px; /* Altura do retângulo */
-    background-color: rgb(179, 229, 94); /* Cor de fundo verde */
-    bottom: 0; /* Posiciona o retângulo na parte inferior */
-    right: 0; /* Posiciona o retângulo à direita */
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 0px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+.btn-outline:hover {
+  background: var(--accent);
+  color: #0d0d0d;
+  transform: translateY(-2px);
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots2 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 10px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section { padding: 5rem 2rem; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-
-/* Estilo para o padrão ziguezague */
-.zigzag {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    bottom: 20px; /* Posiciona o padrão 20px acima da parte inferior */
-    left: 20px; /* Posiciona o padrão 20px à esquerda */
-    width: 120px; /* Largura do padrão ziguezague */
-    height: 100px; /* Altura do padrão ziguezague */
-    background-image: linear-gradient(to right, transparent 50%, #6B3FC7 50%), linear-gradient(to right, rgb(179, 229, 94) 50%, transparent 50%);
-    /* Cria o padrão ziguezague com gradientes lineares */
-    background-size: 10px 10px; /* Define o tamanho das linhas do ziguezague */
-    background-repeat: repeat; /* Faz com que o padrão se repita */
-    transform: rotate(45deg); /* Roda o padrão em 45 graus para criar o ziguezague */
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots3 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 20px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
-
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-.dots4 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 30px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+.hero-tag {
+  display: inline-block;
+  background: rgba(72, 49, 212, 0.15);
+  border: 1px solid rgba(72, 49, 212, 0.4);
+  color: #a08ef5;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots5 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 40px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
-
+.hero-name {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 0.5rem;
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots6 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 50px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+.hero-name .accent { color: var(--accent); }
+
+.hero-role {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
 }
 
-/* Estilo para o conjunto de pontos brancos */
-.dots7 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 60px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+.hero-role strong { color: var(--text); font-weight: 500; }
 
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
 }
 
-.dots8 {
-    position: absolute; /* Posicionamento absoluto dentro do contêiner pai */
-    top: 70px; /* Posiciona o conjunto de pontos 20px abaixo do topo */
-    right: 200px; /* Posiciona o conjunto de pontos 20px à esquerda */
-    width: 3px; /* Define a largura de cada ponto */
-    height: 3px; /* Define a altura de cada ponto */
-    background-color: rgb(179, 229, 94); /* Cor de fundo branca para os pontos */
-    box-shadow: 10px 0 rgb(179, 229, 94), 20px 0 rgb(179, 229, 94), 30px 0 rgb(179, 229, 94), 40px 0 rgb(179, 229, 94), 50px 0 rgb(179, 229, 94), 60px 0 rgb(179, 229, 94),
-    70px 0 rgb(179, 229, 94), 80px 0 rgb(179, 229, 94), 90px 0 rgb(179, 229, 94), 100px 0 rgb(179, 229, 94); /* Cria pontos adicionais com sombra em offset */
+.hero-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
-/*Pagina de projetos */
-
-body1{
-  background-color: #ccf381;
+.hero-tech-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.4rem;
 }
-/* PAGINA RESPONSIVA
-Estilos para telas de largura mínima de 768px (Tablets e acima) */
-@media (min-width: 768px) {
-  .image-container {
-      width: 400px;
-      height: 500px;
+
+.hero-tech ion-icon,
+.hero-tech i {
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  transition: color var(--transition), transform var(--transition);
+}
+
+.hero-tech ion-icon:hover,
+.hero-tech i:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.hero-image-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrap img {
+  width: 260px;
+  height: 320px;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 40px rgba(72, 49, 212, 0.25);
+  background: rgba(255,255,255,0.02);
+}
+
+.hero-image-wrap::before {
+  content: '';
+  position: absolute;
+  width: 280px; height: 340px;
+  border-radius: 16px;
+  border: 1px dashed rgba(204, 243, 129, 0.15);
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about {
+  background: rgba(255, 255, 255, 0.015);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.about-text p:last-of-type { margin-bottom: 1.6rem; }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  text-align: center;
+  transition: border-color var(--transition);
+}
+
+.stat-card:hover { border-color: rgba(204, 243, 129, 0.3); }
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* ============================================================
+   PORTFOLIO
+   ============================================================ */
+#portfolio { padding-top: 5rem; padding-bottom: 5rem; }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(204, 243, 129, 0.35);
+  box-shadow: 0 12px 40px rgba(204, 243, 129, 0.08);
+}
+
+.portfolio-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-card-img {
+  transform: scale(1.03);
+}
+
+.portfolio-card-body {
+  padding: 1.2rem;
+}
+
+.portfolio-card-icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-card-body h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-card-body p {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.portfolio-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: gap var(--transition);
+}
+
+.portfolio-card-link:hover { gap: 0.6rem; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact {
+  background: rgba(255, 255, 255, 0.015);
+  border-top: 1px solid var(--border);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info h2 { margin-bottom: 0.8rem; }
+
+.contact-info p {
+  font-size: 0.9rem;
+  margin-bottom: 1.8rem;
+  line-height: 1.8;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.social-link img {
+  width: 20px; height: 20px;
+  filter: brightness(0) invert(0.6);
+}
+
+.social-link-icon {
+  font-size: 1.25rem;
+  color: #888;
+}
+
+.social-link:hover {
+  border-color: rgba(204, 243, 129, 0.4);
+  background: rgba(204, 243, 129, 0.08);
+  transform: translateY(-2px);
+}
+
+.social-link:hover img { filter: brightness(0) invert(0.9); }
+.social-link:hover.social-link-icon,
+.social-link:hover .bxl-linkedin { color: var(--text); }
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-control {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(72, 49, 212, 0.06);
+}
+
+.form-control::placeholder { color: #555; }
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 1.8rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+footer span { color: var(--accent); }
+
+/* ============================================================
+   SCROLL REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .purple-rectangle, .green-rectangle {
-      width: 120px;
-      height: 250px;
+  .hero-image-wrap {
+    order: -1;
+  }
+
+  .hero-image-wrap img {
+    width: 200px; height: 250px;
+  }
+
+  .hero-image-wrap::before {
+    width: 220px; height: 270px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Estilos para telas de largura mínima de 1024px (Notebooks e acima) */
-@media (min-width: 1024px) {
-  .image-container {
-      width: 500px;
-      height: 600px;
-  }
+@media (max-width: 600px) {
+  section { padding: 3.5rem 1.2rem; }
 
-  .purple-rectangle, .green-rectangle {
-      width: 350px;
-      height:80px;
-  }
+  .navbar { padding: 1rem 1.2rem; }
 
-  .dots {
-      box-shadow: 12px 0 white, 24px 0 white, 36px 0 white, 48px 0 white;
-  }
+  .nav-toggle { display: flex; }
 
-  .zigzag {
-      width: 60px;
-      height: 60px;
-  }
-}
-
-/* Estilos para telas de largura máxima de 480px (Mobile) */
-@media (max-width: 480px) {
-  .image-container {
-      width: 250px;
-      height: 350px;
-  }
-
-  .purple-rectangle, .green-rectangle {
-      width: 130px;
-      height: 80px;
-  }
-
-  .dots {
-      box-shadow: 8px 0 white, 16px 0 white, 24px 0 white, 32px 0 white;
-  }
-
-  .zigzag {
-      width: 40px;
-      height: 40px;
-  }
-}
-
-/* Exemplo de CSS para ajustar sobreposição */
-.form-group, .btn2 {
-    position: relative;
-    z-index: 2; /* Certifica-se de que o formulário esteja na frente dos gráficos */
-}
-
-.background-decorations {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100%;
+    left: 0; right: 0;
+    background: rgba(13, 13, 13, 0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+  }
+
+  .navbar-nav.open { display: flex; }
+
+  .navbar-nav a {
+    display: block;
+    padding: 0.8rem 1.5rem;
     width: 100%;
-    height: 100%;
-    z-index: 1; /* Gráficos de fundo estarão atrás do formulário */
+  }
+
+  .navbar-nav a::after { display: none; }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { text-align: center; justify-content: center; }
 }
-
-.purple-rectangle, .green-rectangle, .dots, .dots2, .dots3, .dots4, .dots5, .dots6, .dots7, .dots8, .zigzag {
-    pointer-events: none; /* Impede que os gráficos interfiram na interação com o formulário */
-}
-
-/* Ajustando o botão "Baixar CV" */
-#download-cv {
-    position: relative;
-    z-index: 10; /* Garante que o botão fique na frente dos gráficos */
-    margin-top: 20px; /* Adiciona margem superior para separação */
-}
-
-/* Ajustes de layout responsivo */
-@media (max-width: 768px) {
-    #download-cv {
-        width: 50%; /* Garante que o botão seja largo o suficiente em dispositivos móveis */
-        margin-top: 15px;
-    } 
-
-    /* Pode precisar ajustar o tamanho ou posição dos gráficos em telas menores */
-    .background-decorations .purple-rectangle,
-    .background-decorations .green-rectangle,
-    .background-decorations .dots {
-        /* Exemplo de ajustes */
-        width: auto;
-        margin: 0 auto;
-    }
-}
-
-
-
-
-.card, .carousel-control-prev, .carousel-control-next {
-    position: relative;
-    z-index: 2; /* Garante que os cartões e controles do carrossel estejam na frente */
-}
-
-/* Estilo base para o contêiner dos ícones */
-.social-icons {
-    display: flex; /* Organiza os ícones lado a lado */
-    gap: 15px; /* Espaçamento entre os ícones */
-    justify-content: flex-start; /* Alinha os ícones à esquerda */
-    margin-top: 10px; /* Espaçamento superior opcional */
-}
-/* Contêiner do botão e ícones */
-.button-and-icons {
-    display: flex; /* Alinha o botão e os ícones lado a lado */
-    align-items: center; /* Centraliza verticalmente */
-    gap: 15px; /* Espaçamento entre o botão e os ícones */
-    margin-top: 10px; /* Espaçamento superior opcional */
-}
-
-/* Estilo geral para os ícones */
-.social-icon img {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    object-fit: contain; /* Garante que as imagens fiquem proporcionais */
-    border-radius: 25%; /* Adiciona bordas arredondadas */
-    transition: transform 0.3s ease; /* Adiciona a transição para o hover */
-}
-
-/* Efeito ao passar o mouse */
-.social-icon img:hover {
-    transform: scale(1.2); /* Amplia o ícone levemente */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
-}
-
-/* Ajustes específicos para telas menores */
-@media (max-width: 480px) {
-    .social-icon img {
-        width: 40px;
-        height: 40px; /* Reduz o tamanho dos ícones */
-    }
-
-    .social-icons {
-        gap: 10px; /* Reduz o espaçamento entre os ícones */
-    }
-}
-
-
-
-
