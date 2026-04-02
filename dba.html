@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DBA — Administração de Banco de Dados — Filipe Santos.">
+  <meta property="og:title" content="DBA — Filipe Santos">
+  <meta property="og:description" content="Administração de banco de dados, manutenção de ERPs e proteção de dados para empresas e clientes.">
+  <meta property="og:image" content="https://filsantos12.github.io/MyPortifolio/img/projeto3_img4.png">
+  <meta property="og:type" content="website">
   <title>DBA — Filipe Santos</title>
 
   <!-- Google Analytics -->
@@ -44,7 +48,7 @@
     <div class="projects-grid">
 
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto3_img3.png" alt="DBA">
+        <img class="project-card-media" src="img/projeto3_img3.png" alt="DBA" loading="lazy">
         <div class="project-card-body">
           <h3>Administração de Banco de Dados</h3>
           <p>Responsável por manter, proteger e operar bancos de dados de um sistema ERP para empresa de pequeno porte, garantindo armazenamento e recuperação corretos dos dados.</p>
@@ -52,7 +56,7 @@
       </div>
 
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto3_img4.png" alt="DBA ERP">
+        <img class="project-card-media" src="img/projeto3_img4.png" alt="DBA ERP" loading="lazy">
         <div class="project-card-body">
           <h3>Banco de Dados ERP</h3>
           <p>Estruturação e otimização de banco de dados integrado a sistema ERP, garantindo performance, integridade e disponibilidade das informações.</p>
@@ -71,14 +75,36 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+    <p>&copy; <span id="footerYear"></span> <span>Filipe Santos</span>. Todos os direitos reservados.</p>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">&#8679;</button>
+  <style>
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #ccf381; color: #0d0d0d;
+      border: none; font-size: 1.5rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s; z-index: 999;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  </style>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 
 </body>

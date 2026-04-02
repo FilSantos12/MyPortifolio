@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Projetos de desenvolvimento web de Filipe Santos.">
+  <meta property="og:title" content="Projetos Web — Filipe Santos">
+  <meta property="og:description" content="Projetos completos do zero — plataformas médicas, sistemas de gestão, agendamentos e catálogos institucionais.">
+  <meta property="og:image" content="https://filsantos12.github.io/MyPortifolio/img/promed_img1.png">
+  <meta property="og:type" content="website">
   <title>Projetos Web — Filipe Santos</title>
 
   <!-- Google Analytics -->
@@ -288,13 +292,13 @@
         <div class="featured-layout">
           <div class="carousel" id="promedCarousel">
             <div class="carousel-track" id="promedTrack">
-              <img src="img/promed_img1.png" alt="ProMed - Landing Page">
-              <img src="img/promed_img2.png" alt="ProMed - Médicos">
-              <img src="img/promed_img3.png" alt="ProMed - Painel Admin">
-              <img src="img/promed_img4.png" alt="ProMed - Agendamento">
-              <img src="img/promed_img5.png" alt="ProMed - Área do Médico">
-              <img src="img/promed_img6.png" alt="ProMed - Tela 6">
-              <img src="img/promed_img7.png" alt="ProMed - Tela 7">
+              <img src="img/promed_img1.png" alt="ProMed - Landing Page" loading="lazy">
+              <img src="img/promed_img2.png" alt="ProMed - Médicos" loading="lazy">
+              <img src="img/promed_img3.png" alt="ProMed - Painel Admin" loading="lazy">
+              <img src="img/promed_img4.png" alt="ProMed - Agendamento" loading="lazy">
+              <img src="img/promed_img5.png" alt="ProMed - Área do Médico" loading="lazy">
+              <img src="img/promed_img6.png" alt="ProMed - Tela 6" loading="lazy">
+              <img src="img/promed_img7.png" alt="ProMed - Tela 7" loading="lazy">
             </div>
             <button class="carousel-btn prev" onclick="promedSlide(-1)">&#8249;</button>
             <button class="carousel-btn next" onclick="promedSlide(1)">&#8250;</button>
@@ -319,7 +323,7 @@
 
       <!-- Projeto: Denúncias -->
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto1_img2.png" alt="Sistema de Denúncias">
+        <img class="project-card-media" src="img/projeto1_img2.png" alt="Sistema de Denúncias" loading="lazy">
         <div class="project-card-body">
           <h3>Sistema de Denúncias</h3>
           <p>Plataforma web para moradores relatarem problemas do bairro, ruas e serviços da cidade. Desenvolvimento full-stack com foco em acessibilidade.</p>
@@ -333,12 +337,12 @@
       <div class="project-card reveal">
         <div class="carousel" id="irflowCarousel">
           <div class="carousel-track" id="irflowTrack">
-            <img src="img/irflow_img1.png" alt="IRFlow - Login">
-            <img src="img/irflow_img2.png" alt="IRFlow - Dashboard">
-            <img src="img/irflow_img3.png" alt="IRFlow - Clientes">
-            <img src="img/irflow_img4.png" alt="IRFlow - Usuários">
-            <img src="img/irflow_img5.png" alt="IRFlow - Processo">
-            <img src="img/irflow_img6.png" alt="IRFlow - Editar Processo">
+            <img src="img/irflow_img1.png" alt="IRFlow - Login" loading="lazy">
+            <img src="img/irflow_img2.png" alt="IRFlow - Dashboard" loading="lazy">
+            <img src="img/irflow_img3.png" alt="IRFlow - Clientes" loading="lazy">
+            <img src="img/irflow_img4.png" alt="IRFlow - Usuários" loading="lazy">
+            <img src="img/irflow_img5.png" alt="IRFlow - Processo" loading="lazy">
+            <img src="img/irflow_img6.png" alt="IRFlow - Editar Processo" loading="lazy">
           </div>
           <button class="carousel-btn prev" onclick="irflowSlide(-1)">&#8249;</button>
           <button class="carousel-btn next" onclick="irflowSlide(1)">&#8250;</button>
@@ -357,9 +361,9 @@
       <div class="project-card reveal">
         <div class="carousel" id="atmCarousel">
           <div class="carousel-track" id="atmTrack">
-            <img src="img/atm_img1.png" alt="ATMParts - Hero">
-            <img src="img/atm_img2.png" alt="ATMParts - Produtos">
-            <img src="img/atm_img3.png" alt="ATMParts - Contato">
+            <img src="img/atm_img1.png" alt="ATMParts - Hero" loading="lazy">
+            <img src="img/atm_img2.png" alt="ATMParts - Produtos" loading="lazy">
+            <img src="img/atm_img3.png" alt="ATMParts - Contato" loading="lazy">
           </div>
           <button class="carousel-btn prev" onclick="atmSlide(-1)">&#8249;</button>
           <button class="carousel-btn next" onclick="atmSlide(1)">&#8250;</button>
@@ -438,14 +442,36 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+    <p>&copy; <span id="footerYear"></span> <span>Filipe Santos</span>. Todos os direitos reservados.</p>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">&#8679;</button>
+  <style>
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #ccf381; color: #0d0d0d;
+      border: none; font-size: 1.5rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s; z-index: 999;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  </style>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     // Hover-to-play para cards de vídeo
     document.querySelectorAll('.project-card--video').forEach(card => {
@@ -533,7 +559,7 @@
     function goTo(index) {
       current = (index + total) % total;
       track.style.transform = `translateX(-${current * 100}%)`;
-      document.querySelectorAll('.carousel-dot').forEach((d, i) =>
+      dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
         d.classList.toggle('active', i === current)
       );
     }

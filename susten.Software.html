@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Sustentação de software — Filipe Santos.">
+  <meta property="og:title" content="Sustentação de Software — Filipe Santos">
+  <meta property="og:description" content="Manutenção, melhoria contínua e suporte técnico em sistemas C# e ERPs empresariais.">
+  <meta property="og:image" content="https://filsantos12.github.io/MyPortifolio/img/projeto2_img1.png">
+  <meta property="og:type" content="website">
   <title>Sustentação de Software — Filipe Santos</title>
 
   <!-- Google Analytics -->
@@ -19,6 +23,73 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="style.projweb.css">
+  <style>
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-track img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+      line-height: 1;
+    }
+
+    .carousel-btn:hover { background: rgba(204,243,129,0.75); color: #0d0d0d; }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      padding: 0;
+    }
+
+    .carousel-dot.active { background: #ccf381; }
+  </style>
 </head>
 <body>
 
@@ -44,7 +115,7 @@
     <div class="projects-grid">
 
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto2_img1.png" alt="Sistema ERP">
+        <img class="project-card-media" src="img/projeto2_img1.png" alt="Sistema ERP" loading="lazy">
         <div class="project-card-body">
           <h3>Suporte ao Sistema ERP</h3>
           <p>Suporte a um sistema ERP em pequena empresa, garantindo que os processos administrativos, financeiros e operacionais funcionem de forma integrada e eficiente.</p>
@@ -52,10 +123,30 @@
       </div>
 
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto2_img2.png" alt="Testes e Melhorias">
+        <img class="project-card-media" src="img/projeto2_img2.png" alt="Testes e Melhorias" loading="lazy">
         <div class="project-card-body">
           <h3>Testes e Melhorias</h3>
           <p>Resolução de problemas, implementação de melhorias e adaptação do sistema às necessidades do negócio — contribuindo para a otimização dos processos internos.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="carousel" id="fechCarousel">
+          <div class="carousel-track" id="fechTrack">
+            <img src="img/fech_img1.png" alt="Melhorias e Evolução - 1">
+            <img src="img/fech_img2.png" alt="Melhorias e Evolução - 2">
+            <img src="img/fech_img3.png" alt="Melhorias e Evolução - 3">
+            <img src="img/fech_img4.png" alt="Melhorias e Evolução - 4">
+            <img src="img/fech_img5.png" alt="Melhorias e Evolução - 5">
+            <img src="img/fech_img6.png" alt="Melhorias e Evolução - 6">
+          </div>
+          <button class="carousel-btn prev" onclick="fechSlide(-1)">&#8249;</button>
+          <button class="carousel-btn next" onclick="fechSlide(1)">&#8250;</button>
+          <div class="carousel-dots" id="fechDots"></div>
+        </div>
+        <div class="project-card-body">
+          <h3>Melhorias e Evolução</h3>
+          <p>Desenvolvimento de novas funcionalidades e aprimoramento de módulos existentes, evoluindo o sistema conforme as necessidades do negócio e garantindo a entrega contínua de valor.</p>
         </div>
       </div>
 
@@ -68,7 +159,7 @@
       </div>
 
       <div class="project-card reveal">
-        <img class="project-card-media" src="img/projeto2_img3.png" alt="Sustentação">
+        <img class="project-card-media" src="img/projeto2_img3.png" alt="Sustentação" loading="lazy">
         <div class="project-card-body">
           <h3>Sustentação Contínua</h3>
           <p>Identificação e correção de problemas, implementação de melhorias, atualização de tecnologias e garantia de que as soluções atendam às necessidades dos usuários.</p>
@@ -80,14 +171,66 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+    <p>&copy; <span id="footerYear"></span> <span>Filipe Santos</span>. Todos os direitos reservados.</p>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">&#8679;</button>
+  <style>
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #ccf381; color: #0d0d0d;
+      border: none; font-size: 1.5rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s; z-index: 999;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  </style>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Fech Carousel
+    (function () {
+      const track = document.getElementById('fechTrack');
+      const dotsEl = document.getElementById('fechDots');
+      const total = track.children.length;
+      let current = 0, timer;
+
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === current)
+        );
+      }
+
+      function fechSlide(dir) { clearInterval(timer); goTo(current + dir); startAuto(); }
+      window.fechSlide = fechSlide;
+
+      function startAuto() { timer = setInterval(() => goTo(current + 1), 3000); }
+      startAuto();
+    })();
   </script>
 
 </body>

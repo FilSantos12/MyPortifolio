@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfólio de Filipe Santos — Desenvolvedor Full-Stack - WEB">
+  <meta property="og:title" content="Filipe Santos — Desenvolvedor Full-Stack WEB">
+  <meta property="og:description" content="Portfólio de Filipe Santos — projetos web, sustentação de software e DBA.">
+  <meta property="og:image" content="https://filsantos12.github.io/MyPortifolio/img/promed_img1.png">
+  <meta property="og:type" content="website">
   <title>Filipe Santos — DEV</title>
 
   <!-- Google Analytics -->
@@ -144,7 +148,7 @@
         <!-- Card 1 — DESTAQUE -->
         <a href="projWeb.html" class="portfolio-card portfolio-card--main reveal">
           <div class="portfolio-card-badge">⭐ Principal</div>
-          <img src="img/promed_img1.png" alt="Desenvolvimento Web" class="portfolio-card-img">
+          <img src="img/promed_img1.png" alt="Desenvolvimento Web" class="portfolio-card-img" loading="lazy">
           <div class="portfolio-card-body">
             <div class="portfolio-card-icon"><i class="bx bx-code-alt"></i></div>
             <h3>Desenvolvimento Web</h3>
@@ -155,7 +159,7 @@
 
         <!-- Card 2 -->
         <a href="susten.Software.html" class="portfolio-card reveal reveal-delay-1">
-          <img src="img/projeto2_img1.png" alt="Sustentação de Software" class="portfolio-card-img">
+          <img src="img/projeto2_img1.png" alt="Sustentação de Software" class="portfolio-card-img" loading="lazy">
           <div class="portfolio-card-body">
             <div class="portfolio-card-icon"><i class="bx bxs-terminal"></i></div>
             <h3>Sustentação de Software</h3>
@@ -166,7 +170,7 @@
 
         <!-- Card 3 -->
         <a href="dba.html" class="portfolio-card reveal reveal-delay-2">
-          <img src="img/projeto3_img4.png" alt="DBA" class="portfolio-card-img">
+          <img src="img/projeto3_img4.png" alt="DBA" class="portfolio-card-img" loading="lazy">
           <div class="portfolio-card-body">
             <div class="portfolio-card-icon"><i class="bx bxs-data"></i></div>
             <h3>DBA</h3>
@@ -241,8 +245,24 @@
 
   <!-- ===================== FOOTER ===================== -->
   <footer>
-    <p>&copy; 2025 <span>Filipe Santos</span>. Todos os direitos reservados.</p>
+    <p>&copy; <span id="footerYear"></span> <span>Filipe Santos</span>. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- ===================== BACK TO TOP ===================== -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">&#8679;</button>
+  <style>
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #ccf381; color: #0d0d0d;
+      border: none; font-size: 1.5rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s; z-index: 999;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .navbar-nav a.active { color: #ccf381; }
+  </style>
 
   <!-- ===================== SCRIPTS ===================== -->
   <script src="validation.js"></script>
@@ -254,6 +274,36 @@
     toggle.addEventListener('click', () => menu.classList.toggle('open'));
     menu.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => menu.classList.remove('open'))
+    );
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav a[href^="#"]');
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.navbar-nav a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 }).observe !== undefined &&
+    sections.forEach(s =>
+      new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.navbar-nav a[href="#${s.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      }, { threshold: 0.4 }).observe(s)
     );
   </script>
 
