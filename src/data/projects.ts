@@ -60,7 +60,22 @@ export const projects: Project[] = [
       back: ['PHP', 'SQLite', 'PDO'],
       integrations: ['Mercado Pago', 'Melhor Envio', 'Anthropic API'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/pspart/
+    images: projectImages('pspart', [
+      'PSPart — página inicial com o assistente de compras aberto',
+      'PSPart — banner de boas-vindas e categorias',
+      'PSPart — catálogo de produtos com filtros',
+      'PSPart — detalhes do produto com cálculo de frete',
+      'PSPart — carrinho com opções de frete',
+      'PSPart — finalização da compra com Mercado Pago',
+      'PSPart — diferenciais da loja',
+      'PSPart — página sobre a empresa',
+      'PSPart — formas de pagamento',
+      'PSPart — login da área administrativa',
+      'PSPart — dashboard do painel admin',
+      'PSPart — produtos no painel admin',
+      'PSPart — pedidos no painel admin',
+      'PSPart — detalhes do pedido com comprador e entrega',
+    ]),
   },
   {
     slug: 'renovat-pneus',
@@ -85,7 +100,15 @@ export const projects: Project[] = [
       back: ['Laravel', 'Sanctum', 'SQLite'],
       infra: ['Windows Service (NSSM)', 'Inno Setup'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/renovat-pneus/
+    images: projectImages('renovat-pneus', [
+      'Renovat Pneus — login',
+      'Renovat Pneus — dashboard com atalhos rápidos',
+      'Renovat Pneus — finanças: receita, custo e lucro',
+      'Renovat Pneus — serviços oferecidos',
+      'Renovat Pneus — impressão de etiquetas',
+      'Renovat Pneus — leitor de código de barras',
+      'Renovat Pneus — usuários e níveis de acesso',
+    ]),
   },
   {
     slug: 'contae',
@@ -110,7 +133,14 @@ export const projects: Project[] = [
       back: ['Laravel', 'SQLite'],
       infra: ['Railway', 'Vercel'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/contae/
+    images: projectImages('contae', [
+      'ContaÊ — login',
+      'ContaÊ — resumo do mês',
+      'ContaÊ — entradas × saídas e gastos por categoria',
+      'ContaÊ — cartões de crédito e benefícios',
+      'ContaÊ — novo lançamento',
+      'ContaÊ — contas e saldo consolidado',
+    ]),
   },
   {
     slug: 'prontbox',
@@ -133,7 +163,12 @@ export const projects: Project[] = [
       infra: ['Vercel', 'Registro.br'],
     },
     links: { demo: 'https://www.prontbox.com.br' },
-    images: [], // TODO: adicionar prints em src/assets/projects/prontbox/
+    images: projectImages('prontbox', [
+      'ProntBox — página inicial',
+      'ProntBox — tecnologias e segmentos atendidos',
+      'ProntBox — criação de sites',
+      'ProntBox — processo de trabalho',
+    ]),
   },
   {
     slug: 'irflow',
@@ -157,27 +192,33 @@ export const projects: Project[] = [
     ]),
   },
 
-  // ── Outros projetos (textos e stacks do projWeb.html do site antigo) ──
   {
-    slug: 'atmparts',
-    name: 'ATMParts',
-    tagline: 'Site institucional e catálogo de produtos de automação',
-    category: 'institucional',
+    slug: 'srm-web',
+    name: 'SRM-WEB',
+    tagline: 'Senhas randômicas e comandos de acesso para fechaduras eletrônicas',
+    category: 'gestao',
     context: 'cliente',
     featured: false,
     order: 7,
     problem:
-      'Uma empresa de soluções mecatrônicas precisava apresentar sua linha de produtos na web.',
+      'Ativar, ajustar e liberar fechaduras eletrônicas exigia gerar comandos e senhas de forma controlada e auditável.',
     solution:
-      'Site institucional com catálogo de motoredutores, travas eletrônicas, leitor biométrico e fechadura BLE.',
+      'Sistema web que cadastra as fechaduras e gera comandos de ativação, ajuste de calendário e senhas randômicas, com perfis de acesso e histórico de cada comando gerado.',
     highlights: [],
-    stack: { front: ['HTML', 'CSS', 'JavaScript'] },
-    images: projectImages('atmparts', [
-      'ATMParts — página inicial',
-      'ATMParts — catálogo de produtos',
-      'ATMParts — contato',
+    stack: {
+      front: ['React', 'TypeScript'],
+      back: ['Laravel', 'MySQL'],
+    },
+    images: projectImages('srm-web', [
+      'SRM-WEB — login',
+      'SRM-WEB — fechaduras cadastradas',
+      'SRM-WEB — detalhes e histórico de uma fechadura',
+      'SRM-WEB — geração de comando',
+      'SRM-WEB — usuários e papéis',
+      'SRM-WEB — histórico de comandos',
     ]),
   },
+  // ── Outros projetos (textos e stacks do projWeb.html do site antigo) ──
   {
     slug: 'denuncias',
     name: 'Sistema de Denúncias',
