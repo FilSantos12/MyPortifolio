@@ -16,7 +16,7 @@ interface Props {
   /** Título da página; sem ele, usa o título padrão do site. */
   title?: string;
   description?: string;
-  /** Imagem de compartilhamento (URL absoluta ou caminho relativo ao site). */
+  /** Imagem de compartilhamento (URL absoluta ou caminho relativo ao site); padrão: og-default.png. */
   ogImage?: string;
   ogType?: 'website' | 'article';
 }
@@ -25,7 +25,8 @@ const { title, description = site.description, ogImage, ogType = 'website' } = A
 
 const fullTitle = title ? `${title} — ${site.name}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+// sem imagem própria, a página usa a imagem padrão (scripts/generate-og.mjs)
+const ogImageUrl = new URL(ogImage ?? url('/og-default.png'), Astro.site).href;
 ---
 
 <!doctype html>
@@ -48,8 +49,8 @@ const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-    <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Favicon -->
     <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
