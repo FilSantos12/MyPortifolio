@@ -192,27 +192,33 @@ export const projects: Project[] = [
     ]),
   },
 
-  // ── Outros projetos (textos e stacks do projWeb.html do site antigo) ──
   {
-    slug: 'atmparts',
-    name: 'ATMParts',
-    tagline: 'Site institucional e catálogo de produtos de automação',
-    category: 'institucional',
+    slug: 'srm-web',
+    name: 'SRM-WEB',
+    tagline: 'Senhas randômicas e comandos de acesso para fechaduras eletrônicas',
+    category: 'gestao',
     context: 'cliente',
     featured: false,
     order: 7,
     problem:
-      'Uma empresa de soluções mecatrônicas precisava apresentar sua linha de produtos na web.',
+      'Ativar, ajustar e liberar fechaduras eletrônicas exigia gerar comandos e senhas de forma controlada e auditável.',
     solution:
-      'Site institucional com catálogo de motoredutores, travas eletrônicas, leitor biométrico e fechadura BLE.',
+      'Sistema web que cadastra as fechaduras e gera comandos de ativação, ajuste de calendário e senhas randômicas, com perfis de acesso e histórico de cada comando gerado.',
     highlights: [],
-    stack: { front: ['HTML', 'CSS', 'JavaScript'] },
-    images: projectImages('atmparts', [
-      'ATMParts — página inicial',
-      'ATMParts — catálogo de produtos',
-      'ATMParts — contato',
+    stack: {
+      front: ['React', 'TypeScript'],
+      back: ['Laravel', 'MySQL'],
+    },
+    images: projectImages('srm-web', [
+      'SRM-WEB — login',
+      'SRM-WEB — fechaduras cadastradas',
+      'SRM-WEB — detalhes e histórico de uma fechadura',
+      'SRM-WEB — geração de comando',
+      'SRM-WEB — usuários e papéis',
+      'SRM-WEB — histórico de comandos',
     ]),
   },
+  // ── Outros projetos (textos e stacks do projWeb.html do site antigo) ──
   {
     slug: 'denuncias',
     name: 'Sistema de Denúncias',
