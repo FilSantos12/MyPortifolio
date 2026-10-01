@@ -35,3 +35,9 @@ export function hasPage(project: Project): boolean {
 
 /** Projetos com página própria, na ordem do campo `order` (usado no anterior/próximo). */
 export const projectPages = sortedProjects.filter(hasPage);
+
+/** Texto pronto para exibir: nem vazio nem o marcador 'TODO' de conteúdo pendente. */
+export function hasText(value: string | undefined): value is string {
+  const text = value?.trim() ?? '';
+  return text !== '' && text.toUpperCase() !== 'TODO';
+}

@@ -7,7 +7,13 @@ import ProjectCover from '../../components/ProjectCover.astro';
 import TechIcon from '../../components/TechIcon.astro';
 import type { Project } from '../../data/types';
 import { toCarouselImages } from '../../lib/carousel';
-import { categoryLabel, contextLabel, projectPages, stackGroupLabel } from '../../lib/projects';
+import {
+  categoryLabel,
+  contextLabel,
+  hasText,
+  projectPages,
+  stackGroupLabel,
+} from '../../lib/projects';
 import { url } from '../../lib/url';
 
 export const getStaticPaths = (() =>
@@ -108,19 +114,23 @@ const demoLabel = project.links?.demo
 
     <div class="mt-14 grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
       <div class="space-y-12">
-        <section aria-labelledby="problema">
-          <h2 id="problema" class="text-2xl font-semibold">
-            O <span class="text-accent">problema</span>
-          </h2>
-          <p class="mt-4 leading-relaxed text-muted">{project.problem}</p>
-        </section>
+        {hasText(project.problem) && (
+          <section aria-labelledby="problema">
+            <h2 id="problema" class="text-2xl font-semibold">
+              O <span class="text-accent">problema</span>
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">{project.problem}</p>
+          </section>
+        )}
 
-        <section aria-labelledby="solucao">
-          <h2 id="solucao" class="text-2xl font-semibold">
-            A <span class="text-accent">solução</span>
-          </h2>
-          <p class="mt-4 leading-relaxed text-muted">{project.solution}</p>
-        </section>
+        {hasText(project.solution) && (
+          <section aria-labelledby="solucao">
+            <h2 id="solucao" class="text-2xl font-semibold">
+              A <span class="text-accent">solução</span>
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">{project.solution}</p>
+          </section>
+        )}
 
         <section aria-labelledby="desafios">
           <h2 id="desafios" class="text-2xl font-semibold">
