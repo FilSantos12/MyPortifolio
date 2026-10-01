@@ -133,7 +133,14 @@ export const projects: Project[] = [
       back: ['Laravel', 'SQLite'],
       infra: ['Railway', 'Vercel'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/contae/
+    images: projectImages('contae', [
+      'ContaÊ — login',
+      'ContaÊ — resumo do mês',
+      'ContaÊ — entradas × saídas e gastos por categoria',
+      'ContaÊ — cartões de crédito e benefícios',
+      'ContaÊ — novo lançamento',
+      'ContaÊ — contas e saldo consolidado',
+    ]),
   },
   {
     slug: 'prontbox',
