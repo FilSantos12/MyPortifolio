@@ -1,15 +1,63 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.svg';
+import MobileMenu from './MobileMenu';
 import { site } from '../data/site';
+import { navLinks } from '../data/navigation';
 import { url } from '../lib/url';
+
+const links = navLinks.map((l) => ({ label: l.label, href: `${url('/')}#${l.hash}` }));
 ---
 
-<header class="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur">
-  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-    <a href={url('/')} class="flex items-center gap-3 font-semibold text-text">
+<header class="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-md">
+  <nav
+    class="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+    aria-label="Principal"
+  >
+    <a href={url('/')} class="flex items-center gap-3 text-[0.95rem] font-semibold tracking-wide">
       <Image src={logo} width={36} height={36} alt="" class="rounded-md" />
       {site.name}
     </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-nav-link
+            class="relative py-1 text-sm text-muted transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:text-accent hover:after:w-full data-[active]:text-accent data-[active]:after:w-full"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <MobileMenu client:media="(max-width: 767px)" links={links} />
   </nav>
 </header>
+
+<script>
+  // Marca o link da seção visível (só tem efeito na home, onde as seções existem)
+  const navLinks = () => document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+  // todas as seções (inclusive o hero, que não tem link) para limpar a marcação no topo
+  const sections = document.querySelectorAll<HTMLElement>('main section[id]');
+
+  if (sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          for (const a of navLinks()) {
+            const active = new URL(a.href).hash === `#${entry.target.id}`;
+            a.toggleAttribute('data-active', active);
+            if (active) a.setAttribute('aria-current', 'location');
+            else a.removeAttribute('aria-current');
+          }
+        }
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+</script>
