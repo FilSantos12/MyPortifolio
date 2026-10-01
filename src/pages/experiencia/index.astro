@@ -21,7 +21,8 @@ const blocks = await Promise.all(
       </a>
     </nav>
 
-    <header class="reveal mt-6">
+    <!-- topo sem reveal: o texto de abertura é o LCP e não pode esperar a animação -->
+    <header class="mt-6">
       <h1 class="section-title">
         Experiência <span class="text-accent">complementar</span>
       </h1>
@@ -38,7 +39,7 @@ const blocks = await Promise.all(
           aria-labelledby={`${block.id}-titulo`}
           class="grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-12"
         >
-          <div class="reveal">
+          <div class:list={[i > 0 && 'reveal']}>
             <h2 id={`${block.id}-titulo`} class="text-2xl font-semibold">
               {block.title}
             </h2>
