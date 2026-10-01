@@ -1,0 +1,42 @@
+---
+import { profile } from '../../data/profile';
+---
+
+<section id="sobre" class="border-y border-line bg-white/[0.015]">
+  <div class="section grid items-center gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+    <div class="reveal">
+      <h2 class="section-title">
+        Sobre <span class="text-accent">mim</span>
+      </h2>
+      <div class="mt-6 space-y-4 leading-relaxed text-muted">
+        <p>
+          Sou desenvolvedor full-stack web e construo aplicações completas com Laravel e
+          React/TypeScript: da conversa sobre o problema até o sistema rodando em produção.
+        </p>
+        <p>
+          Cuido de cada etapa com testes automatizados, CI/CD e infraestrutura como código, para que
+          a entrega seja estável e fácil de evoluir, seja um SaaS com pagamentos, um e-commerce ou
+          um sistema de gestão instalado no cliente.
+        </p>
+        <p>
+          Sou bacharel em Tecnologia da Informação com formação em Mecatrônica Industrial, o que me
+          dá uma visão analítica e estruturada na hora de projetar soluções.
+        </p>
+      </div>
+    </div>
+
+    <dl class="reveal reveal-delay-1 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+      {profile.stats.map((stat) => (
+        <div class="rounded border border-line bg-card p-5 text-center transition-colors hover:border-accent/30">
+          <dt class="sr-only">{stat.label}</dt>
+          <dd>
+            <span class="block text-3xl font-bold text-accent">{stat.value}</span>
+            <span class="mt-1 block text-sm text-muted" aria-hidden="true">
+              {stat.label}
+            </span>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

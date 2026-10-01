@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Carousel from '../../components/Carousel';
+import { experience } from '../../data/experience';
+import { toCarouselImages } from '../../lib/carousel';
+import { url } from '../../lib/url';
+
+const blocks = await Promise.all(
+  experience.map(async (block) => ({ ...block, carousel: await toCarouselImages(block.images) })),
+);
+---
+
+<BaseLayout
+  title="Experiência complementar"
+  description="Experiência complementar de Filipe Santos: sustentação de sistemas em C#/.NET e administração de bancos SQL Server de ERPs."
+>
+  <div class="section">
+    <nav aria-label="Caminho">
+      <a href={url('/')} class="text-sm text-muted transition-colors hover:text-accent">
+        ← Voltar para a home
+      </a>
+    </nav>
+
+    <!-- topo sem reveal: o texto de abertura é o LCP e não pode esperar a animação -->
+    <header class="mt-6">
+      <h1 class="section-title">
+        Experiência <span class="text-accent">complementar</span>
+      </h1>
+      <p class="section-subtitle max-w-2xl">
+        Além do desenvolvimento web, atuo na sustentação de sistemas e nos bancos de dados de ERPs
+        empresariais.
+      </p>
+    </header>
+
+    <div class="mt-14 space-y-20">
+      {blocks.map((block, i) => (
+        <section
+          id={block.id}
+          aria-labelledby={`${block.id}-titulo`}
+          class="grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-12"
+        >
+          <div class:list={[i > 0 && 'reveal']}>
+            <h2 id={`${block.id}-titulo`} class="text-2xl font-semibold">
+              {block.title}
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed">{block.intro}</p>
+            <ul class="mt-6 space-y-4">
+              {block.items.map((item) => (
+                <li class="rounded border border-line bg-card p-4">
+                  <p class="text-sm font-medium text-accent">{item.title}</p>
+                  <p class="mt-1 text-sm leading-relaxed text-muted">{item.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class:list={['reveal reveal-delay-1', i % 2 === 1 && 'lg:order-first']}>
+            <Carousel
+              client:visible
+              images={block.carousel}
+              label={`Telas: ${block.title}`}
+              sizes="(min-width: 1152px) 620px, (min-width: 1024px) 55vw, 100vw"
+            />
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="reveal mt-20 flex flex-col items-start gap-4 rounded border border-line p-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-muted">Meu foco principal é o desenvolvimento web full-stack.</p>
+      <a href={url('/projetos/')} class="btn-primary">
+        Ver projetos web
+      </a>
+    </div>
+  </div>
+</BaseLayout>

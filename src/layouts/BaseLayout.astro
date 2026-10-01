@@ -1,0 +1,124 @@
+---
+// Poppins local (latin), só com os pesos usados no CSS: 400, 500, 600 e 700
+import '@fontsource/poppins/latin-400.css';
+import '@fontsource/poppins/latin-500.css';
+import '@fontsource/poppins/latin-600.css';
+import '@fontsource/poppins/latin-700.css';
+import poppins400 from '@fontsource/poppins/files/poppins-latin-400-normal.woff2?url';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
+import { site } from '../data/site';
+import { url } from '../lib/url';
+
+interface Props {
+  /** Título da página; sem ele, usa o título padrão do site. */
+  title?: string;
+  description?: string;
+  /** Imagem de compartilhamento (URL absoluta ou caminho relativo ao site); padrão: og-default.png. */
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  /** Páginas que não devem ser indexadas (ex.: 404): sem canonical e com robots noindex. */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  ogImage,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title ? `${title} — ${site.name}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+// sem imagem própria, a página usa a imagem padrão (scripts/generate-og.mjs)
+const ogImageUrl = new URL(ogImage ?? url('/og-default.png'), Astro.site).href;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- antes da pintura: habilita o estado inicial do reveal só quando há JS -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={url('/favicon-32x32.png')} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
+    <meta name="theme-color" content="#0d0d0d" />
+
+    <!-- Fonte: preload do peso principal (texto corrido) -->
+    <link rel="preload" href={poppins400} as="font" type="font/woff2" crossorigin />
+
+    <!-- Google Analytics: o gtag.js só é baixado depois do load, quando o navegador fica ocioso -->
+    <script is:inline define:vars={{ gaId: site.gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // o GA exige o objeto `arguments`, não um array
+        // eslint-disable-next-line prefer-rest-params
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId);
+
+      const loadGa = () => {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(script);
+      };
+      const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+      if (document.readyState === 'complete') idle(loadGa);
+      else window.addEventListener('load', () => idle(loadGa), { once: true });
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#conteudo"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-bg"
+    >
+      Pular para o conteúdo
+    </a>
+    <Header />
+    <main id="conteudo" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <BackToTop />
+
+    <script>
+      // Reveal: um único observer para a página toda
+      const items = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.12 },
+      );
+      items.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

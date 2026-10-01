@@ -1,0 +1,26 @@
+---
+import ProjectCard from '../ProjectCard.astro';
+import { featuredProjects } from '../../data/projects';
+import { url } from '../../lib/url';
+---
+
+<section id="projetos" class="section">
+  <div class="reveal">
+    <h2 class="section-title">
+      Projetos em <span class="text-accent">destaque</span>
+    </h2>
+    <p class="section-subtitle">Sistemas que construí do zero, para clientes e para uso próprio.</p>
+  </div>
+
+  <div class="mt-10 grid gap-6 md:grid-cols-2">
+    {featuredProjects.map((project, i) => (
+      <ProjectCard project={project} class:list={['reveal', `reveal-delay-${(i % 2) + 1}`]} />
+    ))}
+  </div>
+
+  <div class="reveal mt-10 flex justify-center">
+    <a href={url('/projetos/')} class="btn-outline">
+      Ver todos os projetos
+    </a>
+  </div>
+</section>

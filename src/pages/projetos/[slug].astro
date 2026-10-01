@@ -1,0 +1,201 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Carousel from '../../components/Carousel';
+import ProjectCover from '../../components/ProjectCover.astro';
+import TechIcon from '../../components/TechIcon.astro';
+import type { Project } from '../../data/types';
+import { toCarouselImages } from '../../lib/carousel';
+import {
+  categoryLabel,
+  contextLabel,
+  hasText,
+  projectPages,
+  stackGroupLabel,
+} from '../../lib/projects';
+import { url } from '../../lib/url';
+
+export const getStaticPaths = (() =>
+  projectPages.map((project, i) => ({
+    params: { slug: project.slug },
+    props: {
+      project,
+      prev: projectPages[i - 1] ?? null,
+      next: projectPages[i + 1] ?? null,
+    },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  project: Project;
+  prev: Project | null;
+  next: Project | null;
+}
+
+const { project, prev, next } = Astro.props;
+
+const carouselImages = await toCarouselImages(project.images);
+const ogImage = project.images[0]
+  ? (await getImage({ src: project.images[0].src, width: 1200, format: 'jpg' })).src
+  : undefined;
+
+const stackGroups = (Object.keys(stackGroupLabel) as (keyof Project['stack'])[])
+  .map((key) => ({ title: stackGroupLabel[key], items: project.stack[key] ?? [] }))
+  .filter((group) => group.items.length > 0);
+
+const demoLabel = project.links?.demo
+  ? new URL(project.links.demo).hostname.replace(/^www\./, '')
+  : undefined;
+---
+
+<BaseLayout title={project.name} description={project.tagline} ogImage={ogImage} ogType="article">
+  <article class="section">
+    <nav aria-label="Caminho">
+      <a href={url('/projetos/')} class="text-sm text-muted transition-colors hover:text-accent">
+        ← Todos os projetos
+      </a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="mt-6">
+      <div class="flex flex-wrap gap-2">
+        <span
+          class:list={[
+            'rounded-full border px-3 py-0.5 text-[0.7rem] font-medium tracking-wide uppercase',
+            project.context === 'cliente'
+              ? 'border-accent/40 bg-accent/10 text-accent'
+              : 'border-primary/40 bg-primary/15 text-chip',
+          ]}
+        >
+          {contextLabel[project.context]}
+        </span>
+        <span class="rounded-full border border-line px-3 py-0.5 text-[0.7rem] font-medium tracking-wide text-muted uppercase">
+          {categoryLabel[project.category]}
+        </span>
+      </div>
+      <h1 class="mt-4 text-4xl font-bold sm:text-5xl">{project.name}</h1>
+      <p class="mt-3 max-w-3xl text-lg text-muted">{project.tagline}</p>
+
+      {(project.links?.demo || project.links?.repo) && (
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          {project.links?.demo && (
+            <a
+              href={project.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              Acessar {demoLabel} <span aria-hidden="true">↗</span>
+              <span class="sr-only">(abre em nova aba)</span>
+            </a>
+          )}
+          {project.links?.repo && (
+            <a
+              href={project.links.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline"
+            >
+              Ver código <span class="sr-only">(abre em nova aba)</span>
+            </a>
+          )}
+        </div>
+      )}
+    </header>
+
+    <!-- Imagens -->
+    <div class="mt-10">
+      {carouselImages.length > 0 ? (
+        <Carousel client:visible images={carouselImages} label={`Telas do ${project.name}`} />
+      ) : (
+        <ProjectCover project={project} class="rounded border border-line" />
+      )}
+    </div>
+
+    <div class="mt-14 grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
+      <div class="space-y-12">
+        {hasText(project.problem) && (
+          <section aria-labelledby="problema">
+            <h2 id="problema" class="text-2xl font-semibold">
+              O <span class="text-accent">problema</span>
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">{project.problem}</p>
+          </section>
+        )}
+
+        {hasText(project.solution) && (
+          <section aria-labelledby="solucao">
+            <h2 id="solucao" class="text-2xl font-semibold">
+              A <span class="text-accent">solução</span>
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">{project.solution}</p>
+          </section>
+        )}
+
+        <section aria-labelledby="desafios">
+          <h2 id="desafios" class="text-2xl font-semibold">
+            Desafios <span class="text-accent">técnicos</span>
+          </h2>
+          <ul class="mt-5 space-y-3">
+            {project.highlights.map((highlight) => (
+              <li class="flex gap-3 rounded border border-line bg-card p-4 leading-relaxed">
+                <span class="mt-0.5 text-accent" aria-hidden="true">
+                  ✓
+                </span>
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+
+      <!-- Stack agrupada -->
+      <aside aria-labelledby="stack-projeto" class="lg:sticky lg:top-24 lg:self-start">
+        <h2 id="stack-projeto" class="text-2xl font-semibold">
+          Stack
+        </h2>
+        <div class="mt-5 space-y-6 rounded border border-line bg-card p-5">
+          {stackGroups.map((group) => (
+            <div>
+              <h3 class="text-xs font-medium tracking-wider text-muted uppercase">{group.title}</h3>
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li>
+                    <TechIcon name={item} variant="chip" />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </div>
+
+    <!-- Anterior / próximo -->
+    <nav
+      aria-label="Outros estudos de caso"
+      class="mt-20 grid gap-4 border-t border-line pt-8 sm:grid-cols-2"
+    >
+      {prev ? (
+        <a
+          href={url(`/projetos/${prev.slug}/`)}
+          class="group rounded border border-line p-5 transition-colors hover:border-accent/40"
+        >
+          <span class="text-xs text-muted">← Anterior</span>
+          <span class="mt-1 block font-semibold group-hover:text-accent">{prev.name}</span>
+        </a>
+      ) : (
+        <span />
+      )}
+      {next && (
+        <a
+          href={url(`/projetos/${next.slug}/`)}
+          class="group rounded border border-line p-5 text-right transition-colors hover:border-accent/40"
+        >
+          <span class="text-xs text-muted">Próximo →</span>
+          <span class="mt-1 block font-semibold group-hover:text-accent">{next.name}</span>
+        </a>
+      )}
+    </nav>
+  </article>
+</BaseLayout>

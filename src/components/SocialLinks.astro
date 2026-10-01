@@ -1,0 +1,39 @@
+---
+import { profile } from '../data/profile';
+import { socialSvg, type SocialIcon } from '../lib/icons';
+
+interface Props {
+  size?: 'sm' | 'md';
+}
+
+const { size = 'md' } = Astro.props;
+
+const items: { icon: SocialIcon; label: string; href: string }[] = [
+  { icon: 'whatsapp', label: 'WhatsApp', href: profile.links.whatsapp },
+  { icon: 'linkedin', label: 'LinkedIn', href: profile.links.linkedin },
+  { icon: 'github', label: 'GitHub', href: profile.links.github },
+];
+---
+
+<ul class="flex gap-3">
+  {items.map((item) => (
+    <li>
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${item.label} (abre em nova aba)`}
+        title={item.label}
+        class:list={[
+          'flex items-center justify-center rounded-[10px] border border-line bg-card text-muted transition duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-text',
+          size === 'md' ? 'size-11' : 'size-9',
+        ]}
+      >
+        <span
+          class:list={['[&>svg]:size-full', size === 'md' ? 'size-5' : 'size-4']}
+          set:html={socialSvg(item.icon)}
+        />
+      </a>
+    </li>
+  ))}
+</ul>

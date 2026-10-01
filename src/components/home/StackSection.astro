@@ -1,0 +1,50 @@
+---
+import TechIcon from '../TechIcon.astro';
+import { stack } from '../../data/stack';
+import { deviconSvg } from '../../lib/icons';
+---
+
+<section id="stack" class="section">
+  <div class="reveal">
+    <h2 class="section-title">
+      Minha <span class="text-accent">stack</span>
+    </h2>
+    <p class="section-subtitle">Ferramentas que uso no dia a dia, do front ao deploy.</p>
+  </div>
+
+  <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    {stack.map((group, i) => {
+      // ícones primeiro, depois os chips de texto
+      const withIcon = group.items.filter((item) => deviconSvg(item));
+      const textOnly = group.items.filter((item) => !deviconSvg(item));
+      return (
+        <article
+          class:list={[
+            'reveal rounded border border-line bg-card p-6',
+            `reveal-delay-${(i % 3) + 1}`,
+          ]}
+        >
+          <h3 class="text-base font-semibold">{group.title}</h3>
+          {withIcon.length > 0 && (
+            <ul class="mt-5 grid grid-cols-3 gap-x-2 gap-y-5 sm:grid-cols-4">
+              {withIcon.map((item) => (
+                <li class="group flex justify-center">
+                  <TechIcon name={item} />
+                </li>
+              ))}
+            </ul>
+          )}
+          {textOnly.length > 0 && (
+            <ul class="mt-5 flex flex-wrap gap-2">
+              {textOnly.map((item) => (
+                <li>
+                  <TechIcon name={item} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      );
+    })}
+  </div>
+</section>

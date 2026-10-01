@@ -1,0 +1,26 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import About from '../components/home/About.astro';
+import StackSection from '../components/home/StackSection.astro';
+import FeaturedProjects from '../components/home/FeaturedProjects.astro';
+import Complementary from '../components/home/Complementary.astro';
+import Contact from '../components/home/Contact.astro';
+import { featuredProjects } from '../data/projects';
+
+// og:image = primeira imagem do PreDoctor, em JPG 1200px (formato aceito por todas as redes)
+const cover = featuredProjects.find((p) => p.slug === 'predoctor')?.images[0];
+const ogImage = cover
+  ? (await getImage({ src: cover.src, width: 1200, format: 'jpg' })).src
+  : undefined;
+---
+
+<BaseLayout ogImage={ogImage}>
+  <Hero />
+  <About />
+  <StackSection />
+  <FeaturedProjects />
+  <Complementary />
+  <Contact />
+</BaseLayout>

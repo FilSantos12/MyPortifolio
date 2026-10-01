@@ -1,0 +1,56 @@
+---
+import SocialLinks from '../SocialLinks.astro';
+import ContactForm from '../ContactForm';
+import { profile } from '../../data/profile';
+
+// lido no build; sem o ID, o formulário não aparece e o WhatsApp vira o canal principal
+const formId = import.meta.env.PUBLIC_FORMSUBMIT_ID?.trim();
+---
+
+<section id="contato" class="border-t border-line bg-white/[0.015]">
+  <div class="section grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
+    <div class="reveal">
+      <h2 class="section-title">
+        Entre em <span class="text-accent">contato</span>
+      </h2>
+      <p class="mt-4 leading-relaxed text-muted">
+        Tem um projeto em mente ou quer conversar sobre oportunidades? Me manda uma mensagem que eu
+        respondo o mais rápido possível.
+      </p>
+      <div class="mt-6">
+        <SocialLinks />
+      </div>
+    </div>
+
+    {formId ? (
+      <div class="reveal reveal-delay-1 rounded border border-line bg-card p-6 sm:p-8">
+        <ContactForm client:visible formId={formId} whatsapp={profile.links.whatsapp} />
+      </div>
+    ) : (
+      <div class="reveal reveal-delay-1 flex flex-col justify-center gap-4 rounded border border-line bg-card p-6 sm:p-8">
+        <p class="text-lg font-medium">Fale comigo pelo WhatsApp</p>
+        <p class="text-sm text-muted">
+          É o jeito mais rápido de falar comigo. Se preferir, me chame no LinkedIn.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={profile.links.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            Chamar no WhatsApp <span class="sr-only">(abre em nova aba)</span>
+          </a>
+          <a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline"
+          >
+            LinkedIn <span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,109 @@
+---
+import { getImage } from 'astro:assets';
+import ProjectCover from './ProjectCover.astro';
+import VideoCard from './VideoCard';
+import type { Project } from '../data/types';
+import { contextLabel, hasPage, projectTech } from '../lib/projects';
+import { url } from '../lib/url';
+
+interface Props {
+  project: Project;
+  /** 'featured': card grande com "Ver estudo de caso"; 'compact': grade de outros projetos. */
+  variant?: 'featured' | 'compact';
+  class?: string;
+  /** Repassado ao <article> (usado pelo filtro de categoria). */
+  'data-category'?: string;
+}
+
+const {
+  project,
+  variant = 'featured',
+  class: className,
+  'data-category': dataCategory,
+} = Astro.props;
+
+const compact = variant === 'compact';
+const tech = projectTech(project, compact ? 4 : 5);
+const href = hasPage(project) ? url(`/projetos/${project.slug}/`) : undefined;
+
+// vídeo sem prints: o card vira um player (o poster é o primeiro frame)
+const videoPoster =
+  project.video && project.images.length === 0
+    ? (await getImage({ src: project.video.poster, width: 800, format: 'webp' })).src
+    : undefined;
+// o link "esticado" cobre o card inteiro, exceto quando há player (ele precisa receber o toque)
+const stretched = href && !videoPoster;
+---
+
+<article
+  data-category={dataCategory}
+  class:list={[
+    'group relative flex flex-col overflow-hidden rounded border border-line bg-card transition duration-300',
+    href &&
+      'hover:-translate-y-1.5 hover:border-accent/35 hover:shadow-[0_12px_40px_rgb(204_243_129/0.08)] has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-accent',
+    className,
+  ]}
+>
+  {project.video && videoPoster ? (
+    <VideoCard
+      client:visible
+      src={url(project.video.src)}
+      poster={videoPoster}
+      title={project.name}
+    />
+  ) : (
+    <ProjectCover
+      project={project}
+      sizes={compact ? '(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw' : undefined}
+      class="[&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.03]"
+    />
+  )}
+
+  <div class:list={['flex flex-1 flex-col', compact ? 'p-4' : 'p-5']}>
+    <span
+      class:list={[
+        'self-start rounded-full border px-3 py-0.5 text-[0.7rem] font-medium tracking-wide uppercase',
+        project.context === 'cliente'
+          ? 'border-accent/40 bg-accent/10 text-accent'
+          : 'border-primary/40 bg-primary/15 text-chip',
+      ]}
+    >
+      {contextLabel[project.context]}
+    </span>
+
+    <h3 class:list={['mt-3 font-semibold', compact ? 'text-base' : 'text-lg']}>
+      {href ? (
+        <a
+          href={href}
+          class:list={[
+            'focus-visible:outline-none',
+            stretched && "after:absolute after:inset-0 after:content-['']",
+            !stretched && 'hover:text-accent',
+          ]}
+        >
+          {project.name}
+        </a>
+      ) : (
+        project.name
+      )}
+    </h3>
+    <p class="mt-1 text-sm leading-relaxed text-muted">{project.tagline}</p>
+
+    <ul class="mt-4 flex flex-wrap gap-1.5" aria-label="Tecnologias">
+      {tech.map((t) => (
+        <li class="rounded-full border border-primary/30 bg-primary/15 px-2.5 py-0.5 text-[0.7rem] text-chip">
+          {t}
+        </li>
+      ))}
+    </ul>
+
+    {href && (
+      <span
+        class="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-medium text-accent transition-[gap] group-hover:gap-2"
+        aria-hidden="true"
+      >
+        Ver estudo de caso <span>→</span>
+      </span>
+    )}
+  </div>
+</article>
