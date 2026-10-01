@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* Tokens do site atual (legacy/style.css) */
+/* Tokens do site antigo (style.css da v1) */
 @theme {
   --color-bg: #0d0d0d;
   --color-accent: #ccf381;

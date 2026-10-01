@@ -1,5 +1,5 @@
 // Gera os favicons a partir do logo legado (F preto em quadrado branco, 500x500).
-// O "F" foi redesenhado em vetor com as medidas de legacy/img/logo.png.
+// O "F" foi redesenhado em vetor com as medidas do logo PNG do site antigo.
 // Uso: node scripts/generate-favicons.mjs
 import { writeFile } from 'node:fs/promises';
 import sharp from 'sharp';

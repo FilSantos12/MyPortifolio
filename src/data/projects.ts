@@ -157,7 +157,7 @@ export const projects: Project[] = [
     ]),
   },
 
-  // ── Outros projetos (textos e stacks do legacy/projWeb.html) ──
+  // ── Outros projetos (textos e stacks do projWeb.html do site antigo) ──
   {
     slug: 'atmparts',
     name: 'ATMParts',
