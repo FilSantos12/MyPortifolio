@@ -100,7 +100,15 @@ export const projects: Project[] = [
       back: ['Laravel', 'Sanctum', 'SQLite'],
       infra: ['Windows Service (NSSM)', 'Inno Setup'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/renovat-pneus/
+    images: projectImages('renovat-pneus', [
+      'Renovat Pneus — login',
+      'Renovat Pneus — dashboard com atalhos rápidos',
+      'Renovat Pneus — finanças: receita, custo e lucro',
+      'Renovat Pneus — serviços oferecidos',
+      'Renovat Pneus — impressão de etiquetas',
+      'Renovat Pneus — leitor de código de barras',
+      'Renovat Pneus — usuários e níveis de acesso',
+    ]),
   },
   {
     slug: 'contae',
