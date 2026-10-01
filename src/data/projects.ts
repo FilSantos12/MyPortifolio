@@ -34,7 +34,6 @@ export const projects: Project[] = [
       'PreDoctor — painel administrativo',
       'PreDoctor — agendamento de consulta',
       'PreDoctor — área do médico',
-      'PreDoctor — área do paciente com resumo de consultas',
       'PreDoctor — home do médico com campanhas e parceiros',
     ]),
   },
@@ -167,7 +166,7 @@ export const projects: Project[] = [
     name: 'ATMParts',
     tagline: 'Site institucional e catálogo de produtos de automação',
     category: 'institucional',
-    context: 'cliente', // TODO: confirmar
+    context: 'cliente',
     featured: false,
     order: 7,
     problem:
@@ -186,8 +185,8 @@ export const projects: Project[] = [
     slug: 'denuncias',
     name: 'Sistema de Denúncias',
     tagline: 'Plataforma para moradores relatarem problemas do bairro e da cidade',
-    category: 'gestao', // TODO: confirmar
-    context: 'proprio', // TODO: confirmar
+    category: 'gestao',
+    context: 'proprio',
     featured: false,
     order: 8,
     problem:
@@ -205,8 +204,8 @@ export const projects: Project[] = [
     slug: 'tattoo-studio',
     name: 'Agendamento — Estúdio de Tattoo',
     tagline: 'Agendamento de horários com envio de referências de desenho',
-    category: 'institucional', // TODO: confirmar
-    context: 'cliente', // TODO: confirmar
+    category: 'gestao',
+    context: 'cliente',
     featured: false,
     order: 9,
     problem: 'O estúdio recebia pedidos de horário e referências de desenho de forma dispersa.',
@@ -243,8 +242,8 @@ export const projects: Project[] = [
     slug: 'agendamento-online',
     name: 'Sistema de Agendamento Online',
     tagline: 'Agendamento de serviços com escolha de horário disponível',
-    category: 'gestao', // TODO: confirmar
-    context: 'cliente', // TODO: confirmar
+    category: 'gestao',
+    context: 'cliente',
     featured: false,
     order: 11,
     problem: 'Agendar serviços por mensagem gerava conflitos de horário e retrabalho.',

@@ -3,7 +3,7 @@ import type { Profile } from './types';
 export const profile: Profile = {
   stats: [
     { value: '4+', label: 'anos em desenvolvimento' },
-    { value: '3', label: 'projetos para clientes' },
+    { value: '8', label: 'projetos para clientes' },
     { value: '4', label: 'sistemas próprios em uso diário' },
   ],
   complementar: [
