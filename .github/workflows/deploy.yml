@@ -32,6 +32,9 @@ jobs:
       - run: npm run format:check
       - run: npm run check
       - run: npm run build
+        env:
+          # ID do FormSubmit; se o secret não existir, o build segue e o contato fica só pelo WhatsApp
+          PUBLIC_FORMSUBMIT_ID: ${{ secrets.PUBLIC_FORMSUBMIT_ID }}
 
       - name: Envia o site para o GitHub Pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
