@@ -153,9 +153,6 @@ export const projects: Project[] = [
     images: projectImages('irflow', [
       'IR.Flow — tela de login',
       'IR.Flow — dashboard',
-      'IR.Flow — clientes',
-      'IR.Flow — usuários',
-      'IR.Flow — processo de declaração',
       'IR.Flow — edição de processo',
     ]),
   },
