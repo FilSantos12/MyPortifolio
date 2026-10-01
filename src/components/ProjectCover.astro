@@ -3,13 +3,21 @@ import { Image } from 'astro:assets';
 import type { Project } from '../data/types';
 
 interface Props {
-  project: Pick<Project, 'name' | 'images'>;
+  project: Pick<Project, 'name' | 'images' | 'video'>;
   class?: string;
   loading?: 'lazy' | 'eager';
+  sizes?: string;
 }
 
-const { project, class: className = '', loading = 'lazy' } = Astro.props;
-const cover = project.images[0];
+const {
+  project,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '(min-width: 1024px) 600px, 100vw',
+} = Astro.props;
+
+// capa: primeiro print; sem prints, o poster do vídeo; sem nada, o placeholder
+const cover = project.images[0] ?? (project.video && { src: project.video.poster, alt: '' });
 ---
 
 <div class:list={['relative aspect-video overflow-hidden bg-card', className]}>
@@ -18,7 +26,7 @@ const cover = project.images[0];
       src={cover.src}
       alt={cover.alt}
       widths={[400, 800, 1200]}
-      sizes="(min-width: 1024px) 600px, 100vw"
+      sizes={sizes}
       loading={loading}
       class="h-full w-full object-cover object-left-top"
     />
