@@ -60,7 +60,22 @@ export const projects: Project[] = [
       back: ['PHP', 'SQLite', 'PDO'],
       integrations: ['Mercado Pago', 'Melhor Envio', 'Anthropic API'],
     },
-    images: [], // TODO: adicionar prints em src/assets/projects/pspart/
+    images: projectImages('pspart', [
+      'PSPart — página inicial com o assistente de compras aberto',
+      'PSPart — banner de boas-vindas e categorias',
+      'PSPart — catálogo de produtos com filtros',
+      'PSPart — detalhes do produto com cálculo de frete',
+      'PSPart — carrinho com opções de frete',
+      'PSPart — finalização da compra com Mercado Pago',
+      'PSPart — diferenciais da loja',
+      'PSPart — página sobre a empresa',
+      'PSPart — formas de pagamento',
+      'PSPart — login da área administrativa',
+      'PSPart — dashboard do painel admin',
+      'PSPart — produtos no painel admin',
+      'PSPart — pedidos no painel admin',
+      'PSPart — detalhes do pedido com comprador e entrega',
+    ]),
   },
   {
     slug: 'renovat-pneus',
