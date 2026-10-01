@@ -233,8 +233,8 @@ export const projects: Project[] = [
       front: ['HTML', 'CSS', 'JavaScript'],
       back: ['PHP'],
     },
+    // vídeo removido (mostrava dados de veículos); placeholder até chegar um vídeo novo
     images: [],
-    video: projectVideo('paulista-despachante'),
   },
   {
     slug: 'agendamento-online',
