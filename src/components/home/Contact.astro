@@ -1,0 +1,45 @@
+---
+import SocialLinks from '../SocialLinks.astro';
+import { profile } from '../../data/profile';
+---
+
+<section id="contato" class="border-t border-line bg-white/[0.015]">
+  <div class="section grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-16">
+    <div class="reveal">
+      <h2 class="section-title">
+        Entre em <span class="text-accent">contato</span>
+      </h2>
+      <p class="mt-4 leading-relaxed text-muted">
+        Tem um projeto em mente ou quer conversar sobre oportunidades? Me manda uma mensagem que eu
+        respondo o mais rápido possível.
+      </p>
+      <div class="mt-6">
+        <SocialLinks />
+      </div>
+    </div>
+
+    <!-- O formulário (ContactForm.tsx) entra aqui no Prompt 5 -->
+    <div class="reveal reveal-delay-1 flex flex-col justify-center gap-4 rounded border border-line bg-card p-6 sm:p-8">
+      <p class="text-lg font-medium">Prefere conversar agora?</p>
+      <p class="text-sm text-muted">Me chame no WhatsApp ou no LinkedIn.</p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={profile.links.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Chamar no WhatsApp <span class="sr-only">(abre em nova aba)</span>
+        </a>
+        <a
+          href={profile.links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          LinkedIn <span class="sr-only">(abre em nova aba)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
