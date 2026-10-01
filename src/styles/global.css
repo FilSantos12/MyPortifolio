@@ -4,6 +4,7 @@
 @theme {
   --color-bg: #0d0d0d;
   --color-accent: #ccf381;
+  --color-accent-hover: #d8f590;
   --color-primary: #4831d4;
   --color-text: #e8e8e8;
   --color-muted: #888888;
@@ -23,7 +24,12 @@
   }
 
   body {
-    @apply bg-bg text-text font-sans antialiased;
+    @apply bg-bg font-sans text-text antialiased;
+  }
+
+  /* compensa o header fixo ao navegar por âncora */
+  section[id] {
+    scroll-margin-top: 4rem;
   }
 
   ::selection {
@@ -35,8 +41,70 @@
   }
 }
 
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition duration-300 hover:-translate-y-0.5;
+}
+
+@layer components {
+  .btn-primary {
+    @apply btn bg-accent text-bg hover:bg-accent-hover hover:shadow-[0_8px_24px_rgb(204_243_129/0.25)];
+  }
+
+  .btn-outline {
+    @apply btn border border-accent text-accent hover:bg-accent hover:text-bg;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-text md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-2 text-muted;
+  }
+}
+
+/* Reveal: só esconde o conteúdo se o JS estiver ativo e o usuário aceitar animações */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+
+  .js .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .js .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .js .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
