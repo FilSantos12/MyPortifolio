@@ -7,8 +7,14 @@ export const profile: Profile = {
     { value: '4', label: 'sistemas próprios em uso diário' },
   ],
   complementar: [
-    { title: 'Sustentação C# / .NET', text: 'TODO' },
-    { title: 'SQL Server e bancos de ERP', text: 'TODO' },
+    {
+      title: 'Sustentação C# / .NET',
+      text: 'Manutenção e evolução de sistemas internos em C#, com foco em estabilidade, correções e novas funcionalidades.',
+    },
+    {
+      title: 'SQL Server e bancos de ERP',
+      text: 'Administração de bancos SQL Server de sistemas ERP: consultas, manutenção e proteção dos dados.',
+    },
   ],
   links: {
     whatsapp: 'https://wa.me/5515981164972',
