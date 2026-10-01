@@ -1,0 +1,64 @@
+---
+import ProjectCover from './ProjectCover.astro';
+import type { Project } from '../data/types';
+import { contextLabel, projectTech } from '../lib/projects';
+import { url } from '../lib/url';
+
+interface Props {
+  project: Project;
+  class?: string;
+}
+
+const { project, class: className } = Astro.props;
+const tech = projectTech(project);
+---
+
+<article
+  class:list={[
+    'group relative flex flex-col overflow-hidden rounded border border-line bg-card transition duration-300 hover:-translate-y-1.5 hover:border-accent/35 hover:shadow-[0_12px_40px_rgb(204_243_129/0.08)] has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-accent',
+    className,
+  ]}
+>
+  <ProjectCover
+    project={project}
+    class="[&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.03]"
+  />
+
+  <div class="flex flex-1 flex-col p-5">
+    <span
+      class:list={[
+        'self-start rounded-full border px-3 py-0.5 text-[0.7rem] font-medium tracking-wide uppercase',
+        project.context === 'cliente'
+          ? 'border-accent/40 bg-accent/10 text-accent'
+          : 'border-primary/40 bg-primary/15 text-chip',
+      ]}
+    >
+      {contextLabel[project.context]}
+    </span>
+
+    <h3 class="mt-3 text-lg font-semibold">
+      <a
+        href={url(`/projetos/${project.slug}/`)}
+        class="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
+      >
+        {project.name}
+      </a>
+    </h3>
+    <p class="mt-1 text-sm leading-relaxed text-muted">{project.tagline}</p>
+
+    <ul class="mt-4 flex flex-wrap gap-1.5" aria-label="Tecnologias">
+      {tech.map((t) => (
+        <li class="rounded-full border border-primary/30 bg-primary/15 px-2.5 py-0.5 text-[0.7rem] text-chip">
+          {t}
+        </li>
+      ))}
+    </ul>
+
+    <span
+      class="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-medium text-accent transition-[gap] group-hover:gap-2"
+      aria-hidden="true"
+    >
+      Ver estudo de caso <span>→</span>
+    </span>
+  </div>
+</article>
