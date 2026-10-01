@@ -1,5 +1,5 @@
 import type { Project } from './types';
-import { projectImages } from '../lib/images';
+import { projectImages, projectVideo } from '../lib/images';
 
 export const projects: Project[] = [
   {
@@ -217,7 +217,7 @@ export const projects: Project[] = [
       back: ['PHP'],
     },
     images: [],
-    video: '/videos/tattoo-studio.mp4',
+    video: projectVideo('tattoo-studio'),
   },
   {
     slug: 'paulista-despachante',
@@ -236,7 +236,7 @@ export const projects: Project[] = [
       back: ['PHP'],
     },
     images: [],
-    video: '/videos/paulista-despachante.mp4',
+    video: projectVideo('paulista-despachante'),
   },
   {
     slug: 'agendamento-online',
@@ -255,7 +255,7 @@ export const projects: Project[] = [
       back: ['PHP'],
     },
     images: [],
-    video: '/videos/agendamento-online.mp4',
+    video: projectVideo('agendamento-online'),
   },
 ];
 

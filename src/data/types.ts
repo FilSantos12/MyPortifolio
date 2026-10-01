@@ -6,6 +6,9 @@ export type ProjectContext = 'cliente' | 'proprio';
 /** Imagem de projeto com texto alternativo (o alt vem do site legado quando existia). */
 export type ProjectImage = { src: ImageMetadata; alt: string };
 
+/** src: caminho em public/, ex.: '/videos/tattoo-studio.mp4' (use com url()). */
+export type ProjectVideo = { src: string; poster: ImageMetadata };
+
 export type Project = {
   slug: string;
   name: string;
@@ -28,8 +31,8 @@ export type Project = {
   links?: { demo?: string; repo?: string };
   /** Vazio enquanto não houver prints: o card mostra um placeholder. */
   images: ProjectImage[];
-  /** Caminho em public/, ex.: '/videos/tattoo-studio.mp4' (use com url()). */
-  video?: string;
+  /** Vídeo em public/videos/ com capa (primeiro frame) em src/assets/projects/<slug>/poster.jpg. */
+  video?: ProjectVideo;
 };
 
 export type StackGroup = { title: string; items: string[] };
