@@ -1,0 +1,23 @@
+---
+import { deviconSvg } from '../lib/icons';
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+const svg = deviconSvg(name);
+---
+
+{svg ? (
+  <span class="inline-flex flex-col items-center gap-2 text-center" title={name}>
+    <span class="size-9 text-muted transition-colors group-hover:text-accent [&>svg]:size-full">
+      <Fragment set:html={svg} />
+    </span>
+    <span class="text-xs text-text/80">{name}</span>
+  </span>
+) : (
+  <span class="inline-flex items-center rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-xs font-medium text-chip">
+    {name}
+  </span>
+)}
