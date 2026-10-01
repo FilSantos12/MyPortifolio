@@ -19,9 +19,17 @@ interface Props {
   /** Imagem de compartilhamento (URL absoluta ou caminho relativo ao site); padrão: og-default.png. */
   ogImage?: string;
   ogType?: 'website' | 'article';
+  /** Páginas que não devem ser indexadas (ex.: 404): sem canonical e com robots noindex. */
+  noindex?: boolean;
 }
 
-const { title, description = site.description, ogImage, ogType = 'website' } = Astro.props;
+const {
+  title,
+  description = site.description,
+  ogImage,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
 
 const fullTitle = title ? `${title} — ${site.name}` : site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -40,7 +48,7 @@ const ogImageUrl = new URL(ogImage ?? url('/og-default.png'), Astro.site).href;
     </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -48,7 +56,7 @@ const ogImageUrl = new URL(ogImage ?? url('/og-default.png'), Astro.site).href;
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noindex && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
 
