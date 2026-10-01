@@ -1,0 +1,68 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ProjectFilter from '../../components/ProjectFilter';
+import { featuredProjects, sortedProjects } from '../../data/projects';
+import type { ProjectCategory } from '../../data/types';
+import { categoryLabel } from '../../lib/projects';
+
+const others = sortedProjects.filter((p) => !p.featured);
+
+// só as categorias que têm projeto, na ordem do rótulo
+const categories = (Object.keys(categoryLabel) as ProjectCategory[]).filter((c) =>
+  sortedProjects.some((p) => p.category === c),
+);
+const filterOptions = categories.map((c) => ({ value: c, label: categoryLabel[c] }));
+
+const cover = featuredProjects[0]?.images[0];
+const ogImage = cover
+  ? (await getImage({ src: cover.src, width: 1200, format: 'jpg' })).src
+  : undefined;
+---
+
+<BaseLayout
+  title="Projetos"
+  description="Projetos de desenvolvimento web de Filipe Santos: SaaS, e-commerce, sistemas de gestão e sites institucionais."
+  ogImage={ogImage}
+>
+  <div class="section">
+    <header class="reveal">
+      <h1 class="section-title">
+        Desenvolvimento <span class="text-accent">Web</span>
+      </h1>
+      <p class="section-subtitle max-w-2xl">
+        Sistemas que construí do zero, do planejamento ao deploy. Os destaques têm estudo de caso
+        com o problema, a solução e os desafios técnicos.
+      </p>
+    </header>
+
+    <div class="reveal mt-8">
+      <ProjectFilter client:idle options={filterOptions} target="#lista-projetos" />
+    </div>
+
+    <div id="lista-projetos" class="mt-10 space-y-16">
+      <section data-filter-group aria-labelledby="titulo-destaques">
+        <h2 id="titulo-destaques" class="text-xl font-semibold">
+          Destaques
+        </h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <ProjectCard project={project} data-category={project.category} />
+          ))}
+        </div>
+      </section>
+
+      <section data-filter-group aria-labelledby="titulo-outros">
+        <h2 id="titulo-outros" class="text-xl font-semibold">
+          Outros projetos
+        </h2>
+        <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {others.map((project) => (
+            <ProjectCard project={project} variant="compact" data-category={project.category} />
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
