@@ -1,0 +1,32 @@
+<button
+  id="back-to-top"
+  type="button"
+  aria-label="Voltar ao topo"
+  class="pointer-events-none fixed right-5 bottom-5 z-40 flex size-11 items-center justify-center rounded-full bg-accent text-bg opacity-0 shadow-lg transition-opacity duration-300 data-[visible]:pointer-events-auto data-[visible]:opacity-100 sm:right-7 sm:bottom-7"
+>
+  <svg
+    viewBox="0 0 24 24"
+    class="size-5"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 19V5M5 12l7-7 7 7"></path>
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById('back-to-top');
+  if (btn) {
+    const update = () => btn.toggleAttribute('data-visible', window.scrollY > 300);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+    btn.addEventListener('click', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+</script>
