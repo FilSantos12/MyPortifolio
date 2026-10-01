@@ -25,7 +25,7 @@ function validate(fields: Fields): Errors {
 }
 
 const inputClass =
-  'w-full rounded-lg border bg-white/[0.03] px-4 py-3 text-sm text-text placeholder:text-muted/70 transition-colors focus:border-accent/60 focus:outline-none focus-visible:outline-none';
+  'w-full rounded-lg border bg-white/[0.03] px-4 py-3 text-sm text-text placeholder:text-muted transition-colors focus:border-accent/60 focus:outline-none focus-visible:outline-none';
 
 export default function ContactForm({ formId, whatsapp }: Props) {
   const uid = useId();
