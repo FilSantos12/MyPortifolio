@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/types';
+
+interface Props {
+  project: Pick<Project, 'name' | 'images'>;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { project, class: className = '', loading = 'lazy' } = Astro.props;
+const cover = project.images[0];
+---
+
+<div class:list={['relative aspect-video overflow-hidden bg-card', className]}>
+  {cover ? (
+    <Image
+      src={cover.src}
+      alt={cover.alt}
+      widths={[400, 800, 1200]}
+      sizes="(min-width: 1024px) 600px, 100vw"
+      loading={loading}
+      class="h-full w-full object-cover object-top"
+    />
+  ) : (
+    // Placeholder enquanto o projeto não tem prints
+    <div
+      class="flex h-full w-full flex-col items-center justify-center gap-2 border border-dashed border-line bg-[radial-gradient(circle_at_30%_20%,rgb(204_243_129/0.12),transparent_60%),radial-gradient(circle_at_80%_90%,rgb(72_49_212/0.18),transparent_55%)] p-4 text-center"
+      role="img"
+      aria-label={`${project.name} — imagens em breve`}
+    >
+      <span class="text-2xl font-semibold text-accent">{project.name}</span>
+      <span class="text-xs tracking-wider text-muted uppercase">Imagens em breve</span>
+    </div>
+  )}
+</div>
