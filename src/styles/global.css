@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+/* Tokens do site atual (legacy/style.css) */
+@theme {
+  --color-bg: #0d0d0d;
+  --color-accent: #ccf381;
+  --color-primary: #4831d4;
+  --color-text: #e8e8e8;
+  --color-muted: #888888;
+  --color-chip: #a08ef5;
+  --color-card: rgb(255 255 255 / 0.04);
+  --color-line: rgb(255 255 255 / 0.08);
+
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 12px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-bg;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
