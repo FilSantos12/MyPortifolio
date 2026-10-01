@@ -1,0 +1,26 @@
+---
+import { profile } from '../../data/profile';
+import { url } from '../../lib/url';
+---
+
+<section aria-labelledby="complementar-titulo" class="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6">
+  <div class="reveal flex flex-col gap-6 rounded border border-line px-6 py-6 md:flex-row md:items-center md:gap-10">
+    <h2 id="complementar-titulo" class="shrink-0 text-sm font-medium text-muted">
+      Também atuo com
+    </h2>
+    <ul class="flex flex-1 flex-col gap-4 sm:flex-row sm:gap-8">
+      {profile.complementar.map((item) => (
+        <li class="flex-1">
+          <p class="text-sm font-medium text-text">{item.title}</p>
+          <p class="mt-0.5 text-sm text-muted">{item.text}</p>
+        </li>
+      ))}
+    </ul>
+    <a
+      href={url('/experiencia/')}
+      class="shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline"
+    >
+      Ver experiência →
+    </a>
+  </div>
+</section>
