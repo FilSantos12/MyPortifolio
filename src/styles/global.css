@@ -12,9 +12,36 @@
   --color-card: rgb(255 255 255 / 0.04);
   --color-line: rgb(255 255 255 / 0.08);
 
-  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Poppins', 'Poppins Fallback', ui-sans-serif, system-ui, sans-serif;
 
   --radius: 12px;
+}
+
+/*
+ * Fallback da Poppins: fonte do sistema com as métricas ajustadas para ocupar o mesmo espaço,
+ * assim o texto não se desloca (CLS) quando a Poppins termina de carregar.
+ * Poppins: ascent 1050, descent 350, line-gap 100 (em 1000). size-adjust medido pela largura de
+ * um texto do site em Poppins contra Arial; os overrides são as métricas da Poppins / size-adjust.
+ * Roboto entra onde não há Arial (Android), com largura próxima.
+ */
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('Arial'), local('ArialMT'), local('Roboto'), local('Roboto-Regular');
+  font-weight: 400 500;
+  size-adjust: 112%;
+  ascent-override: 93.75%;
+  descent-override: 31.25%;
+  line-gap-override: 8.93%;
+}
+
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Roboto Bold'), local('Roboto-Bold');
+  font-weight: 600 700;
+  size-adjust: 106.8%;
+  ascent-override: 98.31%;
+  descent-override: 32.77%;
+  line-gap-override: 9.36%;
 }
 
 @layer base {
