@@ -42,6 +42,49 @@ jobs:
         with:
           path: dist/
 
+  lighthouse:
+    name: Lighthouse (só reporta)
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    # limites em lighthouserc.json (Performance ≥ 90, Acessibilidade ≥ 95) como aviso: não bloqueia o merge
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Roda o Lighthouse CI
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Resumo das notas
+        if: always()
+        run: |
+          node -e '
+            const m = require("./.lighthouseci/relatorios/manifest.json");
+            const reps = m.filter((r) => r.isRepresentativeRun);
+            const pct = (v) => Math.round(v * 100);
+            const rows = reps.map((r) => {
+              const s = r.summary;
+              return `| ${new URL(r.url).pathname} | ${pct(s.performance)} | ${pct(s.accessibility)} | ${pct(s["best-practices"])} | ${pct(s.seo)} |`;
+            });
+            console.log(["### Lighthouse", "", "| Página | Performance | Acessibilidade | Boas práticas | SEO |", "|---|---|---|---|---|", ...rows].join("\n"));
+          ' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guarda os relatórios
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          path: .lighthouseci/relatorios/
+          retention-days: 14
+
   deploy:
     name: Deploy no GitHub Pages
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
