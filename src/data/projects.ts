@@ -163,7 +163,12 @@ export const projects: Project[] = [
       infra: ['Vercel', 'Registro.br'],
     },
     links: { demo: 'https://www.prontbox.com.br' },
-    images: [], // TODO: adicionar prints em src/assets/projects/prontbox/
+    images: projectImages('prontbox', [
+      'ProntBox — página inicial',
+      'ProntBox — tecnologias e segmentos atendidos',
+      'ProntBox — criação de sites',
+      'ProntBox — processo de trabalho',
+    ]),
   },
   {
     slug: 'irflow',
