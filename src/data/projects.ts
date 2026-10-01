@@ -203,14 +203,15 @@ export const projects: Project[] = [
   {
     slug: 'tattoo-studio',
     name: 'Agendamento — Estúdio de Tattoo',
-    tagline: 'Agendamento de horários com envio de referências de desenho',
+    tagline:
+      'Projeto Integrador (Univesp): agendamento de horários com envio de referências de desenho',
     category: 'gestao',
-    context: 'cliente',
+    context: 'proprio',
     featured: false,
     order: 9,
     problem: 'O estúdio recebia pedidos de horário e referências de desenho de forma dispersa.',
     solution:
-      'Página responsiva onde o cliente agenda o horário e envia as referências do desenho.',
+      'Página responsiva, feita como Projeto Integrador na Univesp, onde o cliente agenda o horário e envia as referências do desenho.',
     highlights: [],
     stack: {
       front: ['HTML', 'CSS', 'JavaScript'],
